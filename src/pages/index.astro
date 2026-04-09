@@ -1,0 +1,156 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+import HeroSection from '../components/HeroSection.astro';
+import PainSection from '../components/PainSection.astro';
+import ComparisonSection from '../components/ComparisonSection.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import DeliverablesSection from '../components/DeliverablesSection.astro';
+import WorkflowSection from '../components/WorkflowSection.astro';
+import EconomicsSection from '../components/EconomicsSection.astro';
+import TrustSection from '../components/TrustSection.astro';
+import PilotSection from '../components/PilotSection.astro';
+import FounderSection from '../components/FounderSection.astro';
+import FooterBar from '../components/FooterBar.astro';
+
+const onepager = await getEntry('agency', 'onepager');
+if (!onepager) throw new Error('Agency onepager content not found');
+const raw = onepager.body;
+
+const section = (name: string) => {
+  const re = new RegExp(`## ${name}\\n([\\s\\S]*?)(?=\\n## |$)`, 'm');
+  return (raw.match(re)?.[1] || '').trim();
+};
+
+const subsection = (content: string, title: string) => {
+  const safe = title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`### ${safe}\\n([\\s\\S]*?)(?=\\n### |$)`, 'm');
+  return (content.match(re)?.[1] || '').trim();
+};
+
+const cleanLines = (value: string) =>
+  value
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('### '));
+
+const bullets = (value: string) =>
+  value
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line.startsWith('- '))
+    .map((line) => line.replace(/^-\s*/, ''));
+
+const hero = section('hero');
+const pain = section('pain');
+const prompts = section('prompts_vs_system');
+const oneTopic = section('one_topic_one_pack');
+const deliverables = section('deliverables');
+const workflow = section('execution_roles');
+const economics = section('economics');
+const trust = section('white_label');
+const pilot = section('pilot');
+const founder = section('founder');
+const pricing = section('pricing');
+const footer = section('footer');
+
+const deliverableCards = [
+  { title: 'Platform Copy', body: subsection(deliverables, 'Platform Copy') },
+  { title: 'Designer Brief', body: subsection(deliverables, 'Designer Brief') },
+  { title: 'Video Script', body: subsection(deliverables, 'Video Script') },
+  { title: 'Execution Checklist', body: subsection(deliverables, 'Execution Checklist') }
+];
+
+const workflowRoles = [
+  { title: 'SMM / account', body: subsection(workflow, 'SMM / account') },
+  { title: 'Designer', body: subsection(workflow, 'Designer') },
+  { title: 'Videographer', body: subsection(workflow, 'Videographer') },
+  { title: 'Manager / operator', body: subsection(workflow, 'Manager / operator') }
+];
+
+const trustCards = [
+  { title: 'Your brand stays front and center', body: subsection(trust, 'Your brand stays front and center') },
+  { title: 'Final review stays with your team', body: subsection(trust, 'Final review stays with your team') },
+  { title: 'The client relationship stays yours', body: subsection(trust, 'The client relationship stays yours') }
+];
+
+const pricingLines = cleanLines(pricing)
+  .filter((line) => !line.startsWith('### Section title') && !line.startsWith('### CTA') && !line.startsWith('### Support line'));
+const pricingSubheadline = pricingLines[1] || '';
+const pricingItems = pricingLines.slice(2, 7);
+---
+
+<BaseLayout title={onepager.data.title}>
+  <main class="bg-neutral-50 py-8 text-neutral-900">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 md:px-6">
+      <HeroSection
+        headline={subsection(hero, 'Headline')}
+        subheadline={subsection(hero, 'Subheadline')}
+        support={subsection(hero, 'Support line')}
+        cta={subsection(hero, 'CTA')}
+        snapshot={cleanLines(subsection(hero, 'Snapshot'))}
+      />
+
+      <PainSection items={cleanLines(pain)} />
+
+      <ComparisonSection
+        title={subsection(prompts, 'Section title')}
+        lead={cleanLines(subsection(prompts, 'Lead'))}
+        leftTitle="Claude + prompts"
+        leftBullets={bullets(subsection(prompts, 'Claude + prompts'))}
+        rightTitle="PackCraft for agencies"
+        rightBullets={bullets(subsection(prompts, 'PackCraft for agencies'))}
+      />
+
+      <ProcessSection lines={cleanLines(oneTopic)} />
+
+      <DeliverablesSection
+        title={subsection(deliverables, 'Section title')}
+        cards={deliverableCards}
+        closing={subsection(deliverables, 'Closing line')}
+      />
+
+      <WorkflowSection
+        roles={workflowRoles}
+        support={subsection(workflow, 'Support line')}
+        closing={subsection(workflow, 'Closing line')}
+      />
+
+      <EconomicsSection
+        title={subsection(economics, 'Section title')}
+        intro={cleanLines(economics)[1] || ''}
+        baseline={cleanLines(economics).slice(2, 5)}
+        withPack={cleanLines(economics).slice(5, 8)}
+        scenario={cleanLines(economics).slice(8, 11)}
+        support={subsection(economics, 'Support line')}
+      />
+
+      <TrustSection title={subsection(trust, 'Section title')} cards={trustCards} />
+
+      <PilotSection
+        title={subsection(pilot, 'Section title')}
+        subheadline={subsection(pilot, 'Subheadline')}
+        steps={cleanLines(pilot).slice(2, 7)}
+      />
+
+      <FounderSection
+        title={subsection(founder, 'Section title')}
+        body={cleanLines(founder)[1] || ''}
+        support={subsection(founder, 'Support line')}
+      />
+
+      <section id="pricing" class="rounded-2xl bg-white p-8">
+        <h2 class="text-2xl font-semibold text-neutral-950">{subsection(pricing, 'Section title')}</h2>
+        <p class="mt-3 text-neutral-700">{pricingSubheadline}</p>
+        <div class="mt-5 grid gap-2 md:grid-cols-2">
+          {pricingItems.map((line) => <p class="rounded-lg bg-neutral-50 px-4 py-3 text-sm text-neutral-700">{line}</p>)}
+        </div>
+        <a href="#pricing" class="mt-6 inline-flex rounded-lg bg-orange-600 px-5 py-3 text-sm font-semibold text-white hover:bg-orange-700">{subsection(pricing, 'CTA')}</a>
+        <p class="mt-4 text-neutral-900">{subsection(pricing, 'Support line')}</p>
+      </section>
+
+      <FooterBar lines={cleanLines(footer)} />
+    </div>
+  </main>
+</BaseLayout>
