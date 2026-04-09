@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PackCraft for Agencies — One-Pager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page { size: A4 portrait; margin: 15mm; }
+      @media print {
+        body { background: white; font-size: 10pt; }
+        .no-print { display: none; }
+        .section-card { break-inside: avoid; border: 1px solid #e2e8f0; margin-bottom: 1rem; shadow: none; }
+        .mx-auto { max-width: 100% !important; }
+      }
+      .section-card { transition: transform 0.2s ease; }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased">
+    <main class="mx-auto max-w-5xl px-6 py-12 lg:px-8">
+      <header class="mb-10 border-b border-slate-200 pb-10">
+        <div class="flex justify-between items-start">
+          <div>
+            <h1 id="page-title" class="text-5xl font-extrabold tracking-tight text-slate-950 leading-tight"></h1>
+            <p id="page-subtitle" class="mt-6 max-w-3xl text-xl leading-relaxed text-slate-600"></p>
+          </div>
+          <div class="text-right hidden sm:block">
+            <span class="rounded-full bg-slate-950 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">Agency Edition</span>
+          </div>
+        </div>
+      </header>
+
+      <div id="content-grid" class="space-y-6"></div>
+
+      <footer class="mt-16 border-t border-slate-200 pt-10 text-center">
+        <p class="text-sm font-medium text-slate-500 uppercase tracking-widest">PackCraft Operations System</p>
+        <div id="footer-links" class="mt-4 flex justify-center gap-6 text-slate-400 text-sm"></div>
+      </footer>
+    </main>
+
+    <script type="application/json" id="marketing-content">
+      {
+        "markdown": "## hero
+### Headline
+Turn content retainers into 60–73% gross margin.
+### Subheadline
+PackCraft is a white-label production system for agencies. One topic in. A production pack out for your SMM, designer, videographer, and manager.
+
+## The Problem
+Margins are too thin. Production depends on unstable freelancers. Teams need constant coordination. Agencies want AI efficiency without losing client trust.
+
+## Why PackCraft?
+### Not just prompts
+A project with prompts produces raw text. PackCraft provides a delivery system with role-based instructions, brand memory, and repeatable structure.
+
+## Deliverables
+### Platform Copy
+Captions, hooks, hashtags, and adaptation.
+### Visual Assets
+Slide-by-slide briefs for designers and scene-by-scene scripts for video.
+### Execution
+Checklists for managers and review gates for quality control.
+
+## The Economics
+### Typical Agency
+20–30% gross margin. High production costs ($1,500+ per client).
+### With PackCraft
+60–73% gross margin. Fixed production cost of $800/client/month.
+
+## Free Pilot
+### Pick one client
+We build 3–5 real packs for your team to review. No risk, no change to your current workflow until you see the results.
+
+## Contact
+Email: iamtaras@gmail.com | WhatsApp: +48 510 725 488"
+      }
+    </script>
+
+    <script>
+      const payload = JSON.parse(document.getElementById('marketing-content').textContent);
+      const raw = payload.markdown;
+
+      const parseSections = (text) => {
+        const sections = text.split(/## /).filter(Boolean);
+        return sections.map(s => {
+          const lines = s.split('\n').filter(Boolean);
+          const title = lines[0].trim();
+          const body = lines.slice(1).join('\n').trim();
+          return { title, body };
+        });
+      };
+
+      const sections = parseSections(raw);
+      const container = document.getElementById('content-grid');
+
+      sections.forEach(s => {
+        if (s.title.toLowerCase() === 'hero') {
+          const headline = s.body.match(/### Headline\n(.*)/)?.[1] || '';
+          const subheadline = s.body.match(/### Subheadline\n([\s\S]*)/)?.[1] || '';
+          document.getElementById('page-title').textContent = headline;
+          document.getElementById('page-subtitle').textContent = subheadline;
+          return;
+        }
+
+        if (s.title.toLowerCase() === 'contact') {
+          document.getElementById('footer-links').textContent = s.body;
+          return;
+        }
+
+        const card = document.createElement('section');
+        card.className = 'section-card rounded-2xl bg-white p-8 shadow-sm border border-slate-100';
+        
+        // Highlight Economics
+        if (s.title.toLowerCase().includes('economics')) {
+          card.classList.add('bg-slate-950', 'text-white');
+          card.classList.remove('bg-white', 'text-slate-900');
+        }
+
+        const h2 = document.createElement('h2');
+        h2.className = `text-2xl font-bold tracking-tight ${s.title.includes('Economics') ? 'text-white' : 'text-slate-950'}`;
+        h2.textContent = s.title;
+
+        const content = document.createElement('div');
+        content.className = 'mt-4 prose prose-slate max-w-none';
+        
+        // Simple Markdown subheadings to bold
+        const formattedBody = s.body
+          .replace(/### (.*)/g, '<h3 class="font-bold text-lg mt-4 mb-1">$1</h3>')
+          .split('\n').map(line => line.trim() ? `<p class="mb-2 opacity-90">${line}</p>` : '').join('');
+
+        content.innerHTML = formattedBody;
+        
+        card.appendChild(h2);
+        card.appendChild(content);
+        container.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
