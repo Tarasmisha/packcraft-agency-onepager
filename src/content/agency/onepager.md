@@ -4,8 +4,7 @@ audience: "Agency owners and agency operators"
 cta_primary: "Start a free pilot on one client"
 website: "https://getpackcraft.com/"
 proof: "https://getpackcraft.com/example/"
-email: "[TO CONFIRM EMAIL]"
-demo: "[TO CONFIRM DEMO LINK]"
+email: "iamtaras@gmail.com"
 ---
 
 ## hero
@@ -186,5 +185,6 @@ Low-risk next step: test the system on one real client before changing anything 
 PackCraft for Agencies  
 Website: https://getpackcraft.com/  
 Proof: https://getpackcraft.com/example/  
-Email: [TO CONFIRM EMAIL]  
-Demo: [TO CONFIRM DEMO LINK]
+Email: iamtaras@gmail.com  
+Phone: +48 510 725 488  
+WhatsApp: +48 510 725 488
