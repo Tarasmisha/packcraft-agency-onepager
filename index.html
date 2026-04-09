@@ -1,294 +1,189 @@
 <!doctype html>
-<html lang="en">
-  <head>
+<html lang="ru">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PackCraft for Agencies — Selling Story</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                black: '#0B0B0C',
-                gray: '#6B7280',
-                muted: '#9CA3AF',
-                border: '#E5E7EB',
-                bg: '#FAFAFA',
-                surface: '#FFFFFF',
-                subtle: '#F3F4F6',
-                orange: '#EA580C',
-                orangeHover: '#DC4F0A',
-                orangeLight: '#FFF7ED'
-              }
-            },
-            fontFamily: {
-              jakarta: ['Plus Jakarta Sans', 'sans-serif'],
-              inter: ['Inter', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
-            },
-            spacing: {
-              '18': '4.5rem',
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0B0B0C',
+                            gray: '#6B7280',
+                            border: '#E5E7EB',
+                            bg: '#FAFAFA',
+                            orange: '#EA580C',
+                            orangeHover: '#DC4F0A'
+                        }
+                    },
+                    fontFamily: {
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
             }
-          }
         }
-      }
     </script>
     <style type="text/tailwindcss">
-      /* Базовая типографика по гайду */
-      @layer base {
-        body { font-family: 'Inter', sans-serif; color: #6B7280; font-size: 16px; font-weight: 400; line-height: 1.6; background-color: #FAFAFA; }
-        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: #0B0B0C; letter-spacing: -0.01em; font-weight: 700; }
-        
-        /* Desktop размеры */
-        h1 { font-size: 56px; line-height: 1.1; }
-        h2 { font-size: 36px; line-height: 1.2; }
-        h3 { font-size: 24px; line-height: 1.3; font-weight: 600; }
-        h4 { font-size: 20px; line-height: 1.3; font-weight: 600; }
-        
-        /* Mobile размеры */
-        @media (max-width: 640px) {
-          h1 { font-size: 36px; }
-          h2 { font-size: 28px; }
-          body { font-size: 16px; }
+        @layer base {
+            h1 { @apply font-jakarta text-[36px] lg:text-[56px] font-extrabold leading-[1.1] text-brand-black tracking-[-0.02em] mb-8; }
+            h2 { @apply font-jakarta text-[28px] lg:text-[36px] font-bold leading-[1.2] text-brand-black tracking-[-0.01em] mb-6; }
+            h3 { @apply font-jakarta text-[20px] lg:text-[24px] font-semibold leading-[1.3] text-brand-black mb-4; }
+            p { @apply font-inter text-[16px] lg:text-[18px] text-brand-gray leading-[1.6]; }
         }
-      }
-
-      /* Классы для текста по гайду */
-      @layer components {
-        .text-body-l { font-size: 18px; line-height: 1.6; }
-        .text-body { font-size: 16px; line-height: 1.6; }
-        .text-small { font-size: 14px; line-height: 1.5; }
-        .text-caption { font-size: 12px; line-height: 1.4; color: #9CA3AF; }
-        .text-ui { font-family: 'Inter'; font-weight: 500; font-size: 14px; }
-        
-        /* UI компоненты */
-        .btn-primary { background-color: #EA580C; color: #FFFFFF; transition: background-color 0.2s; }
-        .btn-primary:hover { background-color: #DC4F0A; }
-        
-        .btn-secondary { background-color: #FFFFFF; color: #0B0B0C; border: 1px solid #E5E7EB; transition: background-color 0.2s; }
-        .btn-secondary:hover { background-color: #F3F4F6; }
-
-        .badge-success { background-color: #DCFCE7; color: #16A34A; }
-        .alert-success { background-color: #DCFCE7; color: #16A34A; border-radius: 8px; padding: 12px; }
-        
-        .economics-card { @apply bg-brand-surface rounded-2xl p-6 border border-brand-border; }
-        .deliverable-item { @apply flex items-start gap-4 p-4 border border-brand-border rounded-xl bg-brand-surface; }
-      }
-
-      /* Print CSS для компоновки на 2 страницы */
-      @media print {
-        body { background: white !important; font-size: 10pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-        .no-print { display: none !important; }
-        .mx-auto { max-width: 100% !important; padding: 0 !important; }
-        .section-block { break-inside: avoid; border: 1px solid #E5E7EB; border-radius: 12px; padding: 1.5rem !important; margin-bottom: 1.5rem !important; shadow: none !important; }
-        .economics-section { @apply bg-brand-black text-white p-12 !important; border: none !important; break-before: page; }
-        .economics-section * { color: white !important; }
-        .economics-section .text-brand-orange { color: #EA580C !important; }
-        .economics-section .text-brand-muted { color: #9CA3AF !important; }
-      }
+        @media print {
+            body { background: white !important; }
+            .no-print { display: none !important; }
+            .page-break { break-before: page; }
+            .section-block { break-inside: avoid; border: 1px solid #E5E7EB; border-radius: 12px; padding: 2rem !important; margin-bottom: 2rem !important; shadow: none !important; }
+            .bg-brand-black { background-color: #0B0B0C !important; color: white !important; }
+            .bg-brand-black h2, .bg-brand-black p, .bg-brand-black span { color: white !important; }
+            .bg-brand-black .text-brand-orange { color: #EA580C !important; }
+            .bg-brand-black .text-brand-muted { color: #9CA3AF !important; }
+        }
     </style>
-  </head>
-  <body class="antialiased">
+</head>
+<body class="bg-brand-bg antialiased">
 
-    <nav class="sticky top-0 z-50 bg-brand-surface/90 backdrop-blur-md border-b border-brand-border no-print">
-      <div class="mx-auto max-w-7xl px-6 h-18 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <svg width="140" height="32" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="24" fill="#0B0B0C" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em;">Pack</text>
-            <text x="62" y="24" fill="#EA580C" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em;">Craft</text>
-          </svg>
-        </div>
-        <div class="flex items-center gap-4 text-ui">
-          <span class="text-caption font-semibold uppercase tracking-widest text-brand-gray px-3 py-1 bg-brand-bg rounded-full border border-brand-border">Agency Edition 2025</span>
-          <button class="btn-primary px-6 py-2.5 rounded-full text-ui">Start Pilot</button>
-        </div>
-      </div>
-    </nav>
+    <main class="mx-auto max-w-6xl px-6 py-12 lg:py-20 space-y-24">
+        
+        <header class="grid grid-cols-1 md:grid-cols-5 gap-12 items-start section-block">
+            <div class="md:col-span-3 space-y-8">
+                <svg width="120" height="28" viewBox="0 0 140 32" fill="none" class="no-print"><text x="0" y="24" fill="#0B0B0C" style="font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 24px; letter-spacing: -0.02em;">Pack</text><text x="62" y="24" fill="#EA580C" style="font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 24px; letter-spacing: -0.02em;">Craft</text></svg>
+                <h1>Turn content retainers into 60–73% gross margin.</h1>
+                <p class="text-body-l text-brand-black font-medium">PackCraft is a white-label production system for agencies. Your team puts in one topic and gets a ready production pack.</p>
+                <div class="flex gap-4 no-print pt-6">
+                    <button class="bg-brand-orange text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-orangeHover shadow-lg shadow-brand-orange/20">Start a free pilot</button>
+                    <button class="bg-white text-brand-black border border-brand-border px-8 py-4 rounded-xl font-medium hover:bg-brand-bg transition-colors">See economics</button>
+                </div>
+            </div>
+            <div class="md:col-span-2 space-y-4 no-print rotate-3">
+                <div class="p-6 bg-white border border-brand-border rounded-xl shadow-lg">
+                    <span class="badge-success px-2 py-0.5 rounded text-xs">First client free pilot</span>
+                </div>
+                <div class="p-6 bg-white border border-brand-border rounded-xl shadow-md">
+                    <p class="text-sm">Low-risk next step.</p>
+                </div>
+            </div>
+        </header>
 
-    <main class="mx-auto max-w-6xl px-6 py-12 lg:py-24">
-      
-      <header class="mb-24 section-block grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-        <div class="lg:col-span-3 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-subtle rounded-lg border border-brand-border">
-            <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
-            <span class="text-caption font-semibold text-brand-black uppercase tracking-wider">For Agency Owners & Operators</span>
-          </div>
-          <h1 id="page-title" class="tracking-tighter max-w-4xl mx-auto"></h1>
-          <p id="page-subtitle" class="text-body-l text-brand-secondary max-w-2xl mx-auto"></p>
-          <div class="flex flex-col sm:flex-row items-center gap-4 no-print pt-6">
-            <button class="btn-primary px-10 py-4 rounded-xl text-lg w-full sm:w-auto font-semibold">Start free pilot</button>
-            <a href="#economics" class="btn-secondary px-8 py-4 rounded-xl text-lg w-full sm:w-auto font-medium text-center hover:shadow">See economics</a>
-          </div>
-        </div>
-        <div class="lg:col-span-2 bg-white p-6 rounded-[2rem] shadow-lg border border-brand-border relative overflow-hidden group">
-          <div class="aspect-square bg-brand-subtle rounded-2xl flex flex-col p-6 items-center justify-center text-center space-y-2 relative z-10">
-            <h4 class="font-jakarta">One Topic In</h4>
-            <div class="h-1 bg-brand-orange w-16 group-hover:w-24 transition-all rounded"></div>
-            <h4 class="font-jakarta text-brand-orange">Production Pack Out</h4>
-          </div>
-          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 blur-3xl rounded-full"></div>
-        </div>
-      </header>
+        <section id="economics" class="bg-brand-black rounded-[2.5rem] p-12 lg:p-20 text-white relative overflow-hidden section-block">
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center economics-calculator">
+                <div class="space-y-6">
+                    <h2 class="text-white">Margin Math Economics</h2>
+                    <p class="text-brand-muted max-w-lg">The economics change before the team changes. Your clientPricing stays the same.</p>
+                    <div class="pt-6 border-t border-white/10">
+                        <p class="text-brand-orange text-5xl font-extrabold tracking-tight">$8,500</p>
+                        <p class="text-caption font-bold text-brand-muted uppercase tracking-widest mt-2">Monthly Gross Margin at 5 clients</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                        <span class="text-brand-muted">Typical Retainer</span>
+                        <span class="text-white font-bold">$2,500/mo</span>
+                    </div>
+                    <div class="flex justify-between p-4 bg-brand-orange/10 rounded-xl border border-brand-orange/30 economics-shift-cost">
+                        <span class="text-brand-orange">Production Cost</span>
+                        <span class="text-brand-orange font-bold">$1,500+</span>
+                    </div>
+                    <div class="flex justify-between p-4 bg-brand-orange/20 rounded-xl border border-brand-orange/40 economics-shift-new">
+                        <span class="text-white font-medium">New Margin</span>
+                        <span class="text-green-400 font-extrabold text-2xl">60–73%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-brand-orange/10 blur-[100px] rounded-full"></div>
+        </section>
 
-      <div id="content-grid" class="space-y-12"></div>
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start section-block workflow-steps">
+            <div class="lg:col-span-4">
+                <h2>How it works</h2>
+            </div>
+            <div class="lg:col-span-8 space-y-6 border-l-2 border-brand-orange pl-8 workflow-timeline">
+                <div class="p-6 bg-white border border-brand-border rounded-xl step-1 relative">
+                    <span class="text-brand-orange font-bold text-lg absolute -left-10 top-6">01</span>
+                    <h3 class="text-brand-black text-xl mb-2">One Topic In</h3>
+                    <p class="text-sm">Your team provides context and working memory. Telegram today. Slack available.</p>
+                </div>
+                <div class="p-6 bg-white border border-brand-border rounded-xl step-2 relative">
+                    <span class="text-brand-orange font-bold text-lg absolute -left-10 top-6">02</span>
+                    <h3 class="text-brand-orange text-xl mb-2">Production Pack Out</h3>
+                    <p class="text-sm text-brand-black font-semibold">Ready for SMM, designer, videographer, and manager.</p>
+                </div>
+            </div>
+        </section>
 
-      <footer class="mt-24 bg-brand-black rounded-[2.5rem] p-12 lg:p-24 text-center text-white relative overflow-hidden section-block economics-section no-print">
-        <div class="relative z-10 space-y-8">
-          <h2 class="text-white text-4xl lg:text-5xl font-extrabold max-w-2xl mx-auto">Ready to scale your gross margin?</h2>
-          <p class="text-brand-muted text-body-l max-w-xl mx-auto">Start with one real client. Change nothing else until you see the production packs. Low risk next step.</p>
-          <div id="footer-links" class="flex flex-wrap justify-center gap-8 mb-12 text-small text-brand-muted font-medium"></div>
-          <button class="btn-primary px-12 py-5 rounded-2xl text-xl font-bold shadow-lg shadow-brand-orange/30">Start Pilot on one client</button>
-        </div>
-        <div class="absolute -top-10 -right-10 w-64 h-64 bg-brand-orange/10 blur-[120px] rounded-full"></div>
-      </footer>
+        <section class="section-block page-break deliverables-grid">
+            <h2 class="mb-12">What you actually get</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 bg-white border border-brand-border rounded-xl space-y-3 deliverable-item-copy">
+                    <div class="h-6 w-6 rounded bg-orange-100 flex items-center justify-center">
+                        <svg class="h-4 w-4 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                    </div>
+                    <h4 class="text-sm">Platform Copy</h4>
+                    <p class="text-xs">IG, TikTok, and LinkedIn. Includes specific hooks.</p>
+                </div>
+                <div class="p-6 bg-white border border-brand-border rounded-xl space-y-3 deliverable-item-visual">
+                    <div class="h-6 w-6 rounded bg-orange-100 flex items-center justify-center">
+                        <svg class="h-4 w-4 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    </div>
+                    <h4 class="text-sm">Visual Brief</h4>
+                    <p class="text-xs">Slide-by-slide direction, hex codes, and icon placement.</p>
+                </div>
+                <div class="p-6 bg-white border border-brand-border rounded-xl space-y-3 deliverable-item-video">
+                    <div class="h-6 w-6 rounded bg-orange-100 flex items-center justify-center">
+                        <svg class="h-4 w-4 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                    </div>
+                    <h4 class="text-sm">Video Script</h4>
+                    <p class="text-xs">Scene-by-scene timing, voiceover, and on-screen text.</p>
+                </div>
+                <div class="p-6 bg-white border border-brand-border rounded-xl space-y-3 deliverable-item-qa">
+                    <div class="h-6 w-6 rounded bg-orange-100 flex items-center justify-center">
+                        <svg class="h-4 w-4 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h4 class="text-sm">QA Checklist</h4>
+                    <p class="text-xs">Handoffs and QA gates to validate content quality.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block grid grid-cols-1 lg:grid-cols-2 gap-8 page-break comparison-grid">
+            <div class="p-8 border border-brand-border rounded-2xl space-y-6 comparison-card-prompts group hover:border-brand-gray transition-colors">
+                <h3 class="text-brand-gray">Claude + prompts</h3>
+                <ul class="space-y-4 text-sm text-brand-gray">
+                    <li class="flex gap-2 text-ui">✕ Gенерируют текст, но не систему</li>
+                    <li class="flex gap-2 text-ui">✕ Каждый раз — «чистый лист» и ручной ввод</li>
+                    <li class="flex gap-2 text-ui">✕ Требуют manual architectural re-work</li>
+                </ul>
+            </div>
+            <div class="p-8 border-2 border-brand-orange bg-orange-50 rounded-2xl space-y-6 comparison-card-packcraft">
+                <h3 class="text-brand-orange">PackCraft operations system</h3>
+                <ul class="space-y-4 text-sm text-brand-black font-medium">
+                    <li class="flex gap-2 text-ui">✓ Role-based instructions (Copy, Briefs, Scripts)</li>
+                    <li class="flex gap-2 text-ui">✓ Контекст бренда сохраняется, а не вводится заново</li>
+                    <li class="flex gap-2 text-ui">✓ Built for delivery, not just drafting</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="text-center pb-24 no-print section-block footer-cta">
+            <h2 class="max-w-2xl mx-auto mb-8">Ready to scale your gross margin?</h2>
+            <button class="bg-brand-orange text-white px-12 py-5 rounded-2xl font-bold hover:bg-brand-orangeHover shadow-2xl shadow-brand-orange/40">Start free pilot on one client</button>
+            <div class="mt-12 text-sm font-medium text-brand-muted space-x-6 footer-contacts">
+                <span>iamtaras@gmail.com</span>
+                <span>getpackcraft.com</span>
+            </div>
+        </footer>
+
     </main>
 
-    <script type="application/json" id="marketing-content">
-      {
-        "markdown": "## hero\n### Headline\nTurn content retainers into 60–73% gross margin.\n### Subheadline\nPackCraft is a white-label production system for agencies. One topic in. A production pack out for your SMM, designer, videographer, and manager.\n\n## The Problem\nMargins are too thin. Production depends on unstable freelancers or coordination hell. Teams need repeated clarification. Agencies want AI efficiency without weakening quality control or client trust. The relationship must stay ours.\n\n## Comparison\n### Not just prompts (Claude/ChatGPT)\nA project with prompts produces text. It does not give your agency a delivery system. Still blank-page prompting, still rebuilds into usable formats, still chaos.\n### PackCraft Operations System\nA coordinated system. Data stays in brand context. Role-based instructions (copy, briefs, scripts, checklist) across the team. Built for delivery, not drafting.\n\n## Economics\n### Current Reality (Typical Retainer)\n$2,500 retainer → $1,500+ production cost → 20–30% gross margin.\n### The Shift with PackCraft\nFixed $800/mo production cost → 60–73% gross margin.\n### The 5-Client Goal\n$12,500 revenue → $8,500 gross margin per month.\n\n## Deliverables\n### Platform Copy\nCaptions, hooks Adaption for SMM publishing.\n### Visual Assets Briefs\nSlide-by-slide for designers Scene-by-scene scripts for video.\n### Execution Checklist\nManagers, review gates quality control before publishing.\n\n## How it works\nOne topic becomes one structured production pack for multiple roles. Worked out within your agency Telegram or Slack workflow. No new hires. No client-facing change.\n\n## Proof & Founder\nTaras Kopytko. 25 years in marketing, founder of multiple agencies, ehemaligen Präsident der Ukrainian Direct Marketing Association. Built from real production pain inside agency delivery.\n\n## Pricing & Pilot\n### The Free Pilot\nPick one client. We build 3–5 real packs. Your team reviews. Zero risk.\n### Scalable Model\nFirst client free, then $800/client/month. Simple to test, clear to scale."
-      }
-    </script>
-
-    <script>
-      const payload = JSON.parse(document.getElementById('marketing-content').textContent);
-      const raw = payload.markdown;
-
-      // Парсим H2 разделы
-      const sections = raw.split(/## /).filter(Boolean).map(s => {
-        const lines = s.split('\n').filter(Boolean);
-        return { title: lines[0].trim(), body: lines.slice(1).join('\n').trim() };
-      });
-
-      const container = document.getElementById('content-grid');
-
-      sections.forEach(s => {
-        const titleNorm = s.title.toLowerCase();
-
-        // 1. Hero Data
-        if (titleNorm === 'hero') {
-          const headlineMatch = s.body.match(/### Headline\n(.*)/);
-          const subheadlineMatch = s.body.match(/### Subheadline\n([\s\S]*)/);
-          if(headlineMatch) document.getElementById('page-title').textContent = headlineMatch[1].trim();
-          if(subheadlineMatch) document.getElementById('page-subtitle').textContent = subheadlineMatch[1].trim();
-          return;
-        }
-
-        // 2. Footer Contact
-        if (titleNorm === 'pricing & pilot') {
-          const ctaLinkMatch = s.body.match(/iamtaras@gmail.com[\s\S]*/);
-          if(ctaLinkMatch){
-             const links = ctaLinkMatch[0].split('|').map(l => l.trim());
-             const footer = document.getElementById('footer-links');
-             links.forEach(link => {
-                const span = document.createElement('span');
-                span.className = 'flex items-center gap-2';
-                span.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-brand-orange no-print"></span> ${link}`;
-                footer.appendChild(span);
-             });
-          }
-        }
-
-        const block = document.createElement('section');
-        block.className = 'section-block transition-all duration-300';
-        
-        // --- 3. Стилизация компоновки Looksoft/Premium ---
-
-        if (titleNorm.includes('economics')) {
-          //economics: Full-width dark section (Climax)
-          block.id = 'economics';
-          block.className = 'economics-section bg-brand-black rounded-[2rem] p-12 lg:p-20 text-white section-block';
-          block.innerHTML = `<h2 class="text-white text-3xl font-extrabold mb-10 tracking-tight">${s.title}</h2>`;
-          
-          const grid = document.createElement('div');
-          grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
-          
-          s.body.split(/### /).filter(Boolean).forEach(ecoSub => {
-            const ecoLines = ecoSub.split('\n').filter(Boolean);
-            const card = document.createElement('div');
-            card.className = 'bg-brand-surface border border-brand-border p-8 rounded-xl bg-opacity-[0.03] space-y-3';
-            card.innerHTML = `
-              <h3 class="text-sm font-bold uppercase tracking-wider text-brand-orange">${ecoLines[0].trim()}</h3>
-              <p class="text-xl lg:text-3xl font-extrabold text-white leading-tight">${ecoLines[1].replace('Margin: ', '<span class="text-brand-gray text-base font-medium">Margin: </span><span class="badge-success px-2 py-0.5 rounded text-xs">').replace('%', '%</span>')}</p>
-            `;
-            if(ecoLines[2]) card.innerHTML += `<p class="text-caption text-brand-muted">${ecoLines[2]}</p>`;
-            grid.appendChild(card);
-          });
-          block.appendChild(grid);
-          container.appendChild(block);
-          return;
-        } 
-
-        if (titleNorm.includes('comparison') || titleNorm.includes('deliverables')) {
-          // comparison & deliverables: grid-based
-          block.innerHTML = `<h2 class="mb-10">${s.title}</h2>`;
-          const grid = document.createElement('div');
-          grid.className = 'grid grid-cols-1 lg:grid-cols-2 gap-8';
-          
-          s.body.split(/### /).filter(Boolean).forEach(sub => {
-            const lines = sub.split('\n').filter(Boolean);
-            const subTitle = lines[0].trim();
-            const subBody = lines.slice(1).join(' ');
-            
-            const item = document.createElement('div');
-            item.className = titleNorm.includes('comparison') ? 'border border-brand-border p-8 rounded-2xl bg-brand-surface group hover:border-brand-orange transition-colors' : 'deliverable-item';
-            
-            if(titleNorm.includes('comparison') && subTitle.includes('PackCraft')){
-              item.classList.add('border-brand-orange', 'bg-brand-orangeLight', 'ring-2', 'ring-brand-orange/10');
-            }
-
-            item.innerHTML = `
-              <div class="space-y-2">
-                <h3 class="text-lg font-bold ${item.classList.contains('bg-brand-orangeLight') ? 'text-brand-orange' : 'text-brand-black'}">${subTitle}</h3>
-                <p class="text-brand-gray text-sm font-normal leading-relaxed">${subBody}</p>
-              </div>
-            `;
-            grid.appendChild(item);
-          });
-          block.appendChild(grid);
-        } else if (titleNorm.includes('proof')) {
-          // proof/founder section
-          block.className += ' bg-brand-surface rounded-[2rem] p-12 lg:p-16 border border-brand-border group';
-          block.innerHTML = `
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 items-center">
-              <div class="lg:col-span-1 border border-brand-border rounded-full aspect-square bg-brand-subtle flex items-center justify-center text-brand-muted font-mono text-xl group-hover:border-brand-orange transition-all">Logo</div>
-              <div class="lg:col-span-3 space-y-4">
-                <h2 class="tracking-tight">${s.title}</h2>
-                <div class="prose prose-slate prose-lg max-w-none text-brand-gray">${s.body.replace(/\n/g, '<br>')}</div>
-              </div>
-            </div>
-          `;
-        } else {
-          // Problem, How it works, Pilot: Simple storytelling
-          block.innerHTML = `<h2 class="mb-8">${s.title}</h2>`;
-          const content = document.createElement('div');
-          content.className = titleNorm.includes('problem') ? 'text-body-l text-brand-black leading-relaxed font-medium bg-brand-orangeLight p-8 rounded-2xl border border-brand-orange/10 max-w-4xl' : 'text-body text-brand-gray max-w-4xl';
-          
-          // Обработка ### вложенных заголовков для "Pricing & Pilot"
-          if (s.body.includes('###')) {
-            s.body.split(/### /).filter(Boolean).forEach(subParagraph => {
-              const paraLines = subParagraph.split('\n').filter(Boolean);
-              const subHeadline = paraLines[0].trim();
-              const subText = paraLines.slice(1).join(' ');
-              const divPara = document.createElement('div');
-              divPara.className = 'mb-6 space-y-1';
-              divPara.innerHTML = `<h4 class="text-lg font-semibold text-brand-black">${subHeadline}</h4><p>${subText}</p>`;
-              content.appendChild(divPara);
-            });
-          } else {
-            content.innerHTML = `<p>${s.body.replace(/\n/g, '<br>')}</p>`;
-          }
-          block.appendChild(content);
-        }
-
-        container.appendChild(block);
-      });
-    </script>
-  </body>
+</body>
 </html>
