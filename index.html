@@ -6,16 +6,16 @@
     <title>PackCraft for Agencies — Selling Story</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-    
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: { black: '#0B0B0C', gray: '#6B7280', muted: '#9CA3AF', border: '#E5E7EB', bg: '#FAFAFA', orange: '#EA580C', orangeHover: '#DC4F0A', orangeLight: '#FFF7ED' }
+                        brand: { black: '#0B0B0C', gray: '#6B7280', border: '#E5E7EB', bg: '#FAFAFA', orange: '#EA580C' }
                     },
                     fontFamily: { jakarta: ['Plus Jakarta Sans', 'sans-serif'], inter: ['Inter', 'sans-serif'] }
                 }
@@ -25,267 +25,177 @@
     <style type="text/tailwindcss">
         @layer base {
             body { @apply bg-brand-bg font-inter text-brand-black antialiased; }
-            h1 { @apply font-jakarta text-[56px] font-extrabold leading-[1.1] tracking-[-0.02em] mb-8; }
-            h2 { @apply font-jakarta text-[36px] font-bold leading-[1.2] tracking-[-0.01em] mb-6; }
-            h3 { @apply font-jakarta text-[24px] font-semibold leading-[1.3] mb-4; }
-            h4 { @apply font-jakarta text-[20px] font-semibold leading-[1.3] mb-2; }
-            p { @apply text-brand-gray text-[16px] lg:text-[18px] leading-[1.6]; }
+            h1 { @apply font-jakarta text-[42px] lg:text-[52px] font-extrabold leading-[1.1] tracking-[-0.03em] mb-6; }
+            h2 { @apply font-jakarta text-[28px] lg:text-[32px] font-bold leading-[1.2] tracking-[-0.02em] mb-4 border-b border-brand-border pb-2; }
+            h3 { @apply font-jakarta text-[20px] font-bold mb-2 text-brand-black; }
+            p { @apply text-[15px] lg:text-[16px] leading-[1.5] text-brand-gray mb-3; }
         }
-        .ui-card { @apply bg-white border border-brand-border rounded-[24px] p-10 shadow-sm transition-all hover:shadow-md; }
-        .icon-box { @apply h-12 w-12 rounded-xl bg-brand-orangeLight flex items-center justify-center text-brand-orange mb-6; }
+        .card { @apply bg-white border border-brand-border rounded-2xl p-6 shadow-sm; }
+        .icon-accent { @apply text-brand-orange w-5 h-5; }
         
         @media print {
-            body { background: white !important; }
+            @page { size: A4; margin: 10mm; }
+            body { background: white !important; font-size: 11pt; }
             .no-print { display: none !important; }
-            .page-break { break-before: page; }
-            .section-block { break-inside: avoid; border: 1px solid #E5E7EB; border-radius: 16px; margin-bottom: 2rem !important; }
+            .main-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 15px !important; }
+            .hero-block { grid-column: span 2 !important; }
+            .economics-block { grid-column: span 2 !important; }
+            .card { padding: 15px !important; border-radius: 8px !important; margin-bottom: 0 !important; page-break-inside: avoid; }
+            h1 { font-size: 28pt !important; margin-bottom: 10px !important; }
+            h2 { font-size: 18pt !important; margin-bottom: 8px !important; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-border no-print">
-        <div class="mx-auto max-w-6xl px-8 h-18 flex items-center justify-between py-4">
-            <svg width="140" height="32" viewBox="0 0 140 32" fill="none">
-                <text x="0" y="24" fill="#0B0B0C" style="font-family:'Plus Jakarta Sans';font-weight:800;font-size:24px;letter-spacing:-0.02em;">Pack</text>
-                <text x="62" y="24" fill="#EA580C" style="font-family:'Plus Jakarta Sans';font-weight:800;font-size:24px;letter-spacing:-0.02em;">Craft</text>
-            </svg>
-            <div class="flex items-center gap-4">
-                <span class="text-[12px] font-bold uppercase tracking-widest text-brand-gray px-3 py-1 bg-brand-bg rounded-full border border-brand-border">Agency Edition 2025</span>
-                <button class="bg-brand-orange text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-brand-orangeHover transition-all">Start Pilot</button>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-brand-border no-print">
+        <div class="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
+            <div class="font-jakarta font-extrabold text-xl tracking-tighter">
+                Pack<span class="text-brand-orange">Craft</span>
             </div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-gray px-2 py-0.5 bg-brand-bg rounded border border-brand-border">Agency Edition 2025</span>
         </div>
     </nav>
 
-    <div class="mx-auto max-w-5xl px-8 py-16 lg:py-24 space-y-24">
+    <main class="mx-auto max-w-6xl px-6 py-10 lg:py-16 main-grid space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8">
         
-        <header class="section-block grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-8">
-                <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-brand-orangeLight rounded-lg border border-brand-orange/10">
-                    <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
-                    <span class="text-[12px] font-bold text-brand-orange uppercase tracking-widest">Operator-led Infrastructure</span>
-                </div>
-                <h1>Turn content retainers into 60–73% gross margin.</h1>
-                <p class="text-[20px] lg:text-[22px] font-medium text-brand-black mb-8 leading-relaxed">
-                    PackCraft is a white-label production system for agencies. Your team puts in one topic and gets a ready production pack: copy, designer brief, video script, and execution checklist.
-                </p>
-                <p class="mb-10 max-w-2xl">
-                    Instead of rebuilding delivery around people who leave, burn out, or need retraining, your team works from a repeatable system built for agency execution.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 no-print">
-                    <button class="bg-brand-orange text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-brand-orangeHover shadow-xl shadow-brand-orange/20 transition-all">Start a free pilot on one client</button>
-                </div>
+        <header class="hero-block lg:col-span-2 space-y-6">
+            <div class="inline-flex items-center gap-2 px-2 py-0.5 bg-brand-orange/5 rounded border border-brand-orange/10">
+                <i data-lucide="shield-check" class="w-3 h-3 text-brand-orange"></i>
+                <span class="text-[10px] font-bold text-brand-orange uppercase">White-Label Infrastructure</span>
             </div>
-            <div class="lg:col-span-4 hidden lg:block">
-                <div class="p-8 bg-white border border-brand-border rounded-[32px] shadow-2xl rotate-3">
-                    <div class="space-y-4">
-                        <div class="h-2 w-12 bg-brand-orange rounded"></div>
-                        <p class="text-sm font-bold text-brand-black uppercase tracking-tighter italic">"Your production cost changes. Your client pricing stays the same."</p>
-                    </div>
+            <h1>Turn content retainers into 60–73% gross margin.</h1>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <p class="text-lg lg:text-xl font-medium text-brand-black leading-snug">
+                    PackCraft is a white-label production system for agencies. One topic in. A production pack out: copy, designer brief, video script, and execution checklist. [cite: 36, 41]
+                </p>
+                <div class="text-sm space-y-2">
+                    <p>Instead of rebuilding delivery around people who leave or burn out, your team works from a repeatable system built for agency execution. [cite: 41]</p>
+                    <button class="no-print bg-brand-orange text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-orange/90 transition-all shadow-lg shadow-brand-orange/20">Start free pilot</button>
                 </div>
             </div>
         </header>
 
-        <section class="section-block grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-                <h2>The Problem</h2>
-                <div class="space-y-6">
-                    <p class="text-brand-black font-semibold text-xl leading-relaxed">Margins are too thin. Production depends on unstable freelancers or coordination hell. Teams need repeated clarification.</p>
-                    <p>Agencies want to use AI without weakening quality control or client trust. The relationship must stay yours.</p>
+        <section class="economics-block lg:col-span-2 card bg-brand-bg/50">
+            <h2>The Economics: Margin Math</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="space-y-2 p-4 border-r border-brand-border last:border-0">
+                    <span class="text-[10px] font-bold uppercase text-brand-gray">Typical Retainer</span>
+                    <p class="text-2xl font-black text-brand-black">$2,500/mo</p>
+                </div>
+                <div class="space-y-2 p-4 border-r border-brand-border last:border-0">
+                    <span class="text-[10px] font-bold uppercase text-brand-orange">PackCraft Cost</span>
+                    <p class="text-2xl font-black text-brand-orange">$800/client</p>
+                </div>
+                <div class="space-y-2 p-4">
+                    <span class="text-[10px] font-bold uppercase text-green-600">New Gross Margin</span>
+                    <p class="text-2xl font-black text-green-600">60–73%</p>
                 </div>
             </div>
-            <div class="grid grid-cols-1 gap-4">
-                <div class="p-6 bg-white border border-brand-border rounded-2xl flex items-center gap-4">
-                    <span class="text-brand-orange font-black text-2xl opacity-20">01</span>
-                    <p class="text-sm font-semibold text-brand-black">Client expectations grow, margins shrink.</p>
+            <div class="mt-6 pt-6 border-t border-brand-border flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm font-bold text-brand-black m-0">The 5-Client Goal: $12,500 revenue → $8,500 gross margin per month. [cite: 47]</p>
+                <div class="text-[10px] bg-brand-black text-white px-3 py-1 rounded-full uppercase font-bold tracking-tighter">Scalable Production Model</div>
+            </div>
+        </section>
+
+        <section class="card border-l-4 border-l-brand-orange">
+            <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="alert-circle" class="icon-accent"></i>
+                <h3>The Problem</h3>
+            </div>
+            <p>Margins are too thin. Production depends on unstable freelancers or coordination hell. Teams need repeated clarification. [cite: 36, 44]</p>
+            <p>Agencies want AI efficiency without losing client trust. The relationship must stay yours. [cite: 44, 67]</p>
+        </section>
+
+        <section class="card">
+            <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="layers" class="icon-accent"></i>
+                <h3>Architecture vs. Prompts</h3>
+            </div>
+            <div class="space-y-4 text-xs">
+                <div class="pb-3 border-b border-brand-border">
+                    <p class="font-bold text-brand-gray mb-1 uppercase tracking-widest">Prompts (Claude/GPT)</p>
+                    <p>Brand-blind generic text blocks. Requires manual architectural re-work. [cite: 64]</p>
                 </div>
-                <div class="p-6 bg-white border border-brand-border rounded-2xl flex items-center gap-4">
-                    <span class="text-brand-orange font-black text-2xl opacity-20">02</span>
-                    <p class="text-sm font-semibold text-brand-black">Fragile production teams stall growth.</p>
-                </div>
-                <div class="p-6 bg-white border border-brand-border rounded-2xl flex items-center gap-4">
-                    <span class="text-brand-orange font-black text-2xl opacity-20">03</span>
-                    <p class="text-sm font-semibold text-brand-black">AI tools produce raw text, not delivery.</p>
+                <div>
+                    <p class="font-bold text-brand-orange mb-1 uppercase tracking-widest">PackCraft System</p>
+                    <p class="text-brand-black font-medium">Brand memory. Role-based output (Designer/SMM/Video). Visual architecture included. [cite: 64]</p>
                 </div>
             </div>
         </section>
 
-        <section id="economics" class="ui-card section-block !p-0 overflow-hidden">
-            <div class="p-12 border-b border-brand-border">
-                <h2>The economics change before the team changes.</h2>
-                <p>Your client still pays your agency for strategy; the difference is what delivery costs underneath.</p>
+        <section class="card lg:col-span-2">
+            <div class="flex items-center gap-3 mb-6">
+                <i data-lucide="package-check" class="icon-accent"></i>
+                <h3>The Production Pack Deliverables</h3>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                <div class="p-12 border-b lg:border-b-0 md:border-r border-brand-border space-y-6">
-                    <h4 class="text-brand-muted text-sm uppercase tracking-widest">Typical Agency Model</h4>
-                    <div class="space-y-4">
-                        <div class="flex justify-between border-b border-brand-bg pb-2"><span>Retainer</span><span class="font-bold text-brand-black">$2,500/mo</span></div>
-                        <div class="flex justify-between border-b border-brand-bg pb-2"><span>Cost</span><span class="font-bold text-brand-black">$1,500+</span></div>
-                        <div class="flex justify-between pt-2"><span>Margin</span><span class="font-bold text-red-500">20–30%</span></div>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                <div class="space-y-1">
+                    <p class="font-bold text-brand-black">Platform Copy</p>
+                    <p class="text-xs">Captions, hooks, and hashtags adapted for IG, TikTok, and LinkedIn. [cite: 52]</p>
                 </div>
-                <div class="p-12 border-b lg:border-b-0 lg:border-r border-brand-border space-y-6 bg-brand-orangeLight">
-                    <h4 class="text-brand-orange text-sm uppercase tracking-widest">With PackCraft</h4>
-                    <div class="space-y-4 text-brand-black">
-                        <div class="flex justify-between border-b border-brand-orange/10 pb-2"><span>Retainer</span><span class="font-bold">$2,500/mo</span></div>
-                        <div class="flex justify-between border-b border-brand-orange/10 pb-2"><span>Cost</span><span class="font-bold">$800/mo</span></div>
-                        <div class="flex justify-between pt-2"><span>New Margin</span><span class="font-black text-brand-orange text-3xl">60–73%</span></div>
-                    </div>
+                <div class="space-y-1">
+                    <p class="font-bold text-brand-black">Visual Brief</p>
+                    <p class="text-xs">Slide-by-slide direction for the designer. Font specs and icon placement. [cite: 52]</p>
                 </div>
-                <div class="p-12 space-y-6 bg-brand-black text-white">
-                    <h4 class="text-brand-muted text-sm uppercase tracking-widest">Scale Goal</h4>
-                    <div class="space-y-2">
-                        <p class="text-4xl font-black text-brand-orange">$8,500</p>
-                        <p class="text-sm font-medium text-brand-muted">Monthly Gross Margin at 5 clients</p>
-                    </div>
-                    <p class="text-xs text-brand-muted">Revenue: $12,500 | Production: $4,000</p>
+                <div class="space-y-1">
+                    <p class="font-bold text-brand-black">Video Script</p>
+                    <p class="text-xs">Scene-by-scene structure with timing, voiceover, and shot flow. [cite: 52]</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-bold text-brand-black">Execution Checklist</p>
+                    <p class="text-xs">Role-specific QA gates to validate quality before publishing. [cite: 52]</p>
                 </div>
             </div>
         </section>
 
-        <section class="section-block page-break">
-            <div class="mb-16">
-                <h2>Not generic AI output. A pack your team can use.</h2>
-                <p>One topic becomes a structured deliverable for the people who actually do the work.</p>
+        <section class="card">
+            <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="git-merge" class="icon-accent"></i>
+                <h3>Production Workflow</h3>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="ui-card !p-8">
-                    <div class="icon-box">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-                    </div>
-                    <h4>Platform Copy</h4>
-                    <p class="text-sm">Captions, hooks, and hashtags adapted for IG, TikTok, and LinkedIn. Includes specific hooks (e.g., “Niacinamide: Everyone says ‘you need it.’ No one says how much.”)</p>
-                </div>
-                <div class="ui-card !p-8">
-                    <div class="icon-box">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                    </div>
-                    <h4>Visual Brief</h4>
-                    <p class="text-sm">Slide-by-slide direction for the designer. Includes hex codes, font specs, and line-art icon placement.</p>
-                </div>
-                <div class="ui-card !p-8">
-                    <div class="icon-box">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                    </div>
-                    <h4>Video Script</h4>
-                    <p class="text-sm">Scene-by-scene structure with timing, voiceover, and on-screen text. Includes both face-to-camera and faceless/B-roll variants.</p>
-                </div>
-                <div class="ui-card !p-8">
-                    <div class="icon-box">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    </div>
-                    <h4>Execution Checklist</h4>
-                    <p class="text-sm">Role-specific handoffs and QA gates to validate content quality and technical safe zones (IG/TikTok) before publishing.</p>
-                </div>
+            <div class="space-y-3 text-xs">
+                <div class="flex gap-2"><strong>SMM:</strong> Grabs captions and hashtags immediately.</div>
+                <div class="flex gap-2"><strong>Designer:</strong> Follows slide specs with zero Slack back-and-forth.</div>
+                <div class="flex gap-2"><strong>Videographer:</strong> Shoots exactly what is timed and narrated.</div>
+                <div class="flex gap-2"><strong>Manager:</strong> Validates handoffs against the checklist. [cite: 56-59]</div>
             </div>
         </section>
 
-        <section class="section-block grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            <div class="lg:col-span-4">
-                <h2>Workflow in Action</h2>
-                <p class="text-sm italic font-bold text-brand-black">"PackCraft replaces the fragility of human turnover with the stability of architectural delivery."</p>
+        <section class="card bg-brand-black text-white">
+            <div class="flex items-center gap-3 mb-4">
+                <i data-lucide="user-check" class="text-brand-orange w-5 h-5"></i>
+                <h3 class="text-white">Operator Proof</h3>
             </div>
-            <div class="lg:col-span-8 space-y-8 border-l-2 border-brand-border pl-10">
-                <div class="relative">
-                    <div class="absolute -left-14 top-0 h-8 w-8 rounded-full bg-brand-orange flex items-center justify-center text-white text-[10px] font-bold">01</div>
-                    <h4 class="text-sm font-bold text-brand-black mb-1">SMM / Account</h4>
-                    <p class="text-sm">Grabs platform-ready captions, hashtags, and posting logic immediately.</p>
-                </div>
-                <div class="relative">
-                    <div class="absolute -left-14 top-0 h-8 w-8 rounded-full bg-brand-black flex items-center justify-center text-white text-[10px] font-bold">02</div>
-                    <h4 class="text-sm font-bold text-brand-black mb-1">Designer</h4>
-                    <p class="text-sm">Follows the slide spec with zero Slack back-and-forth. No "what did you mean here?".</p>
-                </div>
-                <div class="relative">
-                    <div class="absolute -left-14 top-0 h-8 w-8 rounded-full bg-brand-black flex items-center justify-center text-white text-[10px] font-bold">03</div>
-                    <h4 class="text-sm font-bold text-brand-black mb-1">Videographer</h4>
-                    <p class="text-sm">Opens the script and shoots exactly what is timed and narrated.</p>
-                </div>
-                <div class="relative">
-                    <div class="absolute -left-14 top-0 h-8 w-8 rounded-full bg-brand-black flex items-center justify-center text-white text-[10px] font-bold">04</div>
-                    <h4 class="text-sm font-bold text-brand-black mb-1">Manager / Operator</h4>
-                    <p class="text-sm">Validates the sequence and handoff points against the pre-set checklist.</p>
-                </div>
-            </div>
+            <p class="text-xs text-brand-muted">Built by Taras Kopytko, 25y marketing operator, founder of multiple agencies, former President of UDMA. [cite: 79-81]</p>
+            <p class="text-xs italic font-medium">"Built from real production pain inside agency delivery, not AI hype." [cite: 78]</p>
         </section>
 
-        <section class="section-block page-break grid grid-cols-1 md:grid-cols-2 gap-0 border border-brand-border rounded-[32px] overflow-hidden">
-            <div class="p-12 border-b md:border-b-0 md:border-r border-brand-border bg-white space-y-8">
-                <h3 class="text-brand-muted">Text Generation (Prompts)</h3>
-                <ul class="space-y-4 text-sm">
-                    <li class="flex gap-3">✕ Brand-blind priming</li>
-                    <li class="flex gap-3">✕ Generic text blocks</li>
-                    <li class="flex gap-3">✕ Requires manual architectural re-work</li>
-                    <li class="flex gap-3">✕ Solo-tool behavior</li>
-                </ul>
-            </div>
-            <div class="p-12 bg-brand-orangeLight space-y-8">
-                <h3 class="text-brand-orange">Execution System (PackCraft)</h3>
-                <ul class="space-y-4 text-sm text-brand-black font-semibold">
-                    <li class="flex gap-3">✓ Brand memory, not blank-page prompting</li>
-                    <li class="flex gap-3">✓ Role-based output (Designer/SMM/Video)</li>
-                    <li class="flex gap-3">✓ Visual/Video architecture included</li>
-                    <li class="flex gap-3">✓ White-label agency infrastructure</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 section-block">
-            <div class="p-8 border border-brand-border rounded-2xl bg-white text-center space-y-2">
-                <h4 class="text-sm font-bold text-brand-orange">Your Brand</h4>
-                <p class="text-xs">PackCraft is invisible to your client.</p>
-            </div>
-            <div class="p-8 border border-brand-border rounded-2xl bg-white text-center space-y-2">
-                <h4 class="text-sm font-bold text-brand-orange">Your Review</h4>
-                <p class="text-xs">Your team keeps final approval.</p>
-            </div>
-            <div class="p-8 border border-brand-border rounded-2xl bg-white text-center space-y-2">
-                <h4 class="text-sm font-bold text-brand-orange">Your Client</h4>
-                <p class="text-xs">Relationship remains yours entirely.</p>
-            </div>
-        </section>
-
-        <section class="section-block ui-card">
-            <h2 class="mb-12">The Pilot Sequence</h2>
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
-                <div class="space-y-4"><div class="text-brand-orange font-black text-3xl opacity-20 leading-none">1</div><p class="text-xs font-bold text-brand-black uppercase">Pick client</p></div>
-                <div class="space-y-4"><div class="text-brand-orange font-black text-3xl opacity-20 leading-none">2</div><p class="text-xs font-bold text-brand-black uppercase">Run Pilot (3–5 packs)</p></div>
-                <div class="space-y-4"><div class="text-brand-orange font-black text-3xl opacity-20 leading-none">3</div><p class="text-xs font-bold text-brand-black uppercase">Review Output</p></div>
-                <div class="space-y-4"><div class="text-brand-orange font-black text-3xl opacity-20 leading-none">4</div><p class="text-xs font-bold text-brand-black uppercase">Move to setup</p></div>
-                <div class="space-y-4"><div class="text-brand-orange font-black text-3xl opacity-20 leading-none">5</div><p class="text-xs font-bold text-brand-black uppercase">Full Launch</p></div>
-            </div>
-        </section>
-
-        <footer class="section-block grid grid-cols-1 lg:grid-cols-12 gap-16 pt-24 border-t border-brand-border pb-24 no-print">
-            <div class="lg:col-span-5 space-y-8">
-                <div class="flex items-center gap-6">
-                    <div class="h-16 w-16 bg-brand-black rounded-2xl flex items-center justify-center text-white font-black text-3xl">TK</div>
-                    <div>
-                        <h4 class="text-brand-black text-xl mb-0">Taras Kopytko</h4>
-                        <p class="text-sm text-brand-gray mb-0">25y marketing experience. UDMA founder.</p>
+        <footer class="hero-block lg:col-span-2 py-8 border-t border-brand-border">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-4">
+                    <h2>Start with one client.</h2>
+                    <p class="text-sm">Pick one client. We build 3–5 production packs. Evaluate with your team. Zero risk. [cite: 70-73]</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-brand-border space-y-4">
+                    <div class="flex justify-between items-center font-jakarta">
+                        <span class="font-bold">First Client Pilot</span>
+                        <span class="text-brand-orange font-black">FREE</span>
                     </div>
-                </div>
-                <p class="text-sm italic font-medium leading-relaxed">"Built from real production pain inside agency delivery, not AI hype. Solving production drag for operators."</p>
-            </div>
-            <div class="lg:col-span-7 space-y-12">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div class="p-8 bg-white border border-brand-border rounded-2xl">
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gray mb-2">First Client</p>
-                        <p class="text-3xl font-black text-brand-orange uppercase">Free Pilot</p>
+                    <div class="flex justify-between items-center text-xs">
+                        <span>Monthly Subscription</span>
+                        <span class="font-bold text-brand-black">$800/client</span>
                     </div>
-                    <div class="p-8 bg-white border border-brand-border rounded-2xl">
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-brand-gray mb-2">Monthly Subscription</p>
-                        <p class="text-3xl font-black text-brand-black">$800<span class="text-xs font-normal">/client</span></p>
-                    </div>
-                </div>
-                <div class="flex flex-col sm:flex-row items-center gap-6">
-                    <button class="bg-brand-orange text-white px-12 py-6 rounded-2xl font-bold text-2xl hover:bg-brand-orangeHover shadow-2xl shadow-brand-orange/40 transition-all w-full sm:w-auto">Start a free pilot on one client</button>
-                    <div class="text-sm font-semibold text-brand-gray">iamtaras@gmail.com</div>
+                    <button class="no-print w-full bg-brand-orange text-white py-3 rounded-xl font-bold shadow-lg shadow-brand-orange/20">Start Free Pilot</button>
+                    <div class="text-center text-[10px] text-brand-muted uppercase font-medium">iamtaras@gmail.com | getpackcraft.com</div>
                 </div>
             </div>
         </footer>
 
-    </div>
+    </main>
 
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
