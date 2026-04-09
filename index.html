@@ -1,125 +1,183 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PackCraft for Agencies</title>
+    <title>PackCraft for Agencies — Selling Story</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0B0B0C',
+                            orange: '#EA580C',
+                            orangeHover: '#DC4F0A',
+                            orangeLight: '#FFF7ED',
+                            gray: '#6B7280',
+                            muted: '#9CA3AF',
+                            border: '#E5E7EB',
+                            bg: '#FAFAFA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-      @page { size: A4 portrait; margin: 15mm; }
-      @media print {
-        body { background: white !important; font-size: 10pt; }
-        .no-print { display: none; }
-        .section-card { break-inside: avoid; border: 1px solid #e2e8f0 !important; margin-bottom: 1rem; box-shadow: none !important; }
-        .mx-auto { max-width: 100% !important; padding: 0 !important; }
-      }
-      .section-card { page-break-inside: avoid; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.01em; color: #0B0B0C; }
+        .text-body { font-family: 'Inter', sans-serif; color: #6B7280; line-height: 1.6; }
+        
+        /* Кнопки из гайда */
+        .btn-primary { background: #EA580C; color: white; transition: all 0.2s; font-weight: 500; font-family: 'Inter'; }
+        .btn-primary:hover { background: #DC4F0A; }
+        
+        /* Карточки из гайда */
+        .ui-card { background: white; border: 1px solid #E5E7EB; border-radius: 12px; transition: all 0.3s; }
+        .ui-card:hover { background: #F3F4F6; }
+
+        @media print {
+            body { background: white !important; }
+            .no-print { display: none !important; }
+            .mx-auto { max-width: 100% !important; padding: 0 !important; }
+            .section-block { break-inside: avoid; page-break-inside: avoid; margin-bottom: 2rem !important; }
+        }
     </style>
-  </head>
-  <body class="bg-slate-50 text-slate-900 font-sans antialiased">
-    <main class="mx-auto max-w-4xl px-6 py-12">
-      <header class="mb-12 border-b border-slate-200 pb-10">
-        <div class="flex justify-between items-start">
-          <div class="space-y-4">
-            <h1 id="page-title" class="text-4xl font-black tracking-tight text-slate-950 sm:text-5xl leading-tight"></h1>
-            <p id="page-subtitle" class="max-w-2xl text-xl leading-relaxed text-slate-600"></p>
-          </div>
-          <div class="hidden sm:block">
-            <span class="rounded-full bg-slate-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">Agency Edition</span>
-          </div>
+</head>
+<body class="bg-brand-bg antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-border no-print">
+        <div class="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
+            <img src="Logo_Website.svg.svg" alt="PackCraft" class="h-8 w-auto">
+            <div class="flex items-center gap-4">
+                <span class="text-[12px] font-medium uppercase tracking-widest text-brand-gray px-3 py-1 bg-brand-bg rounded-full border border-brand-border">Agency Edition 2025</span>
+            </div>
         </div>
-      </header>
+    </nav>
 
-      <div id="content-grid" class="space-y-6"></div>
+    <main class="mx-auto max-w-6xl px-6 py-12 lg:py-24">
+        
+        <header class="text-center mb-24 section-block">
+            <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-brand-orangeLight rounded-lg border border-brand-orange/10">
+                <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                <span class="text-sm font-semibold text-brand-orange uppercase tracking-wider">For Agency Owners & Operators</span>
+            </div>
+            <h1 id="page-title" class="text-5xl lg:text-[56px] font-extrabold leading-[1.1] mb-8 max-w-4xl mx-auto"></h1>
+            <p id="page-subtitle" class="text-body text-lg lg:text-[18px] max-w-2xl mx-auto mb-10"></p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 no-print">
+                <a href="#" class="btn-primary px-8 py-4 rounded-xl text-lg w-full sm:w-auto shadow-lg shadow-brand-orange/20">Start a free pilot</a>
+                <a href="https://getpackcraft.com/example/" target="_blank" class="text-brand-black font-semibold flex items-center gap-2 hover:underline">
+                    View Proof <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </header>
 
-      <footer class="mt-20 border-t border-slate-200 pt-8 text-center no-print">
-        <div id="footer-links" class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-slate-500"></div>
-      </footer>
+        <div id="content-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <footer class="mt-24 bg-brand-black rounded-[32px] p-12 lg:p-20 text-center text-white relative overflow-hidden section-block">
+            <div class="relative z-10">
+                <h2 class="text-white text-3xl lg:text-4xl font-bold mb-6">Ready to scale your margin?</h2>
+                <p class="text-brand-muted text-lg mb-10 max-w-xl mx-auto">Test the system on one real client before changing anything else. Low risk, high return.</p>
+                <div id="footer-links" class="flex flex-wrap justify-center gap-8 mb-12 text-sm text-brand-muted"></div>
+                <button class="btn-primary px-10 py-5 rounded-2xl text-xl">Start Pilot Now</button>
+            </div>
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-orange/10 blur-[100px] rounded-full"></div>
+        </div>
     </main>
 
     <script type="application/json" id="marketing-content">
       {
-        "markdown": "## hero\n### Headline\nTurn content retainers into 60–73% gross margin.\n### Subheadline\nPackCraft is a white-label production system for agencies. One topic in. A production pack out for your SMM, designer, videographer, and manager.\n\n## The Problem\nMargins are too thin. Production depends on unstable freelancers. Teams need constant coordination. Agencies want AI efficiency without losing client trust.\n\n## Why PackCraft?\n### Not just prompts\nA project with prompts produces raw text. PackCraft provides a delivery system with role-based instructions, brand memory, and repeatable structure.\n\n## Deliverables\n### Platform Copy\nCaptions, hooks, hashtags, and adaptation.\n### Visual Assets\nSlide-by-slide briefs for designers and scene-by-scene scripts for video.\n### Execution\nChecklists for managers and review gates for quality control.\n\n## The Economics\n### Typical Agency\n20–30% gross margin. High production costs ($1,500+ per client).\n### With PackCraft\n60–73% gross margin. Fixed production cost of $800/client/month.\n\n## Free Pilot\n### Pick one client\nWe build 3–5 real packs for your team to review. No risk, no change to your current workflow until you see the results.\n\n## Contact\nEmail: iamtaras@gmail.com | WhatsApp: +48 510 725 488"
+        "markdown": "## hero\n### Headline\nTurn content retainers into 60–73% gross margin.\n### Subheadline\nPackCraft is a white-label production system for agencies. One topic in. A production pack out for your SMM, designer, videographer, and manager.\n\n## The Problem\nMargins are too thin. Production depends on unstable freelancers or coordination hell. Agencies want AI efficiency without losing client trust or quality control.\n\n## Why PackCraft?\n### Not just prompts\nA project with prompts produces raw text. PackCraft provides a delivery system with role-based instructions, brand memory, and repeatable structure.\n\n## Deliverables\n### Platform Copy\nCaptions, hooks, hashtags, and adaptation for SMM.\n### Visual Assets\nSlide-by-slide briefs for designers and scene-by-scene scripts for video.\n### Execution\nChecklists for managers and review gates for quality control.\n\n## Economics\n### Current Reality\nTypical agency retainer: $2,500/mo. Production cost: $1,500+. Margin: 20-30%.\n### The Shift\nProduction cost with PackCraft: $800/mo. New gross margin: 60-73%.\n### 5-Client Goal\n$12,500 revenue → $8,500 gross margin per month.\n\n## Free Pilot\n### Pick one client\nWe build 3–5 real packs for your team to review. No risk, no change to your current workflow until you see the results.\n\n## Contact\niamtaras@gmail.com | WhatsApp: +48 510 725 488 | getpackcraft.com"
       }
     </script>
 
     <script>
-      const payload = JSON.parse(document.getElementById('marketing-content').textContent);
-      const raw = payload.markdown;
+        const payload = JSON.parse(document.getElementById('marketing-content').textContent);
+        const raw = payload.markdown;
 
-      const parseSections = (text) => {
-        return text.split(/## /).filter(Boolean).map(s => {
-          const lines = s.split('\n').filter(Boolean);
-          const title = lines[0].trim();
-          const body = lines.slice(1).join('\n').trim();
-          return { title, body };
+        const sections = raw.split(/## /).filter(Boolean).map(s => {
+            const lines = s.split('\n').filter(Boolean);
+            return { title: lines[0].trim(), body: lines.slice(1).join('\n').trim() };
         });
-      };
 
-      const sections = parseSections(raw);
-      const container = document.getElementById('content-grid');
+        const container = document.getElementById('content-grid');
 
-      sections.forEach(s => {
-        const titleNorm = s.title.toLowerCase();
+        sections.forEach((s, idx) => {
+            const titleL = s.title.toLowerCase();
 
-        // Handle Hero
-        if (titleNorm === 'hero') {
-          const headline = s.body.match(/### Headline\s*\n([\s\S]*?)(?=\n###|$)/i)?.[1] || '';
-          const subheadline = s.body.match(/### Subheadline\s*\n([\s\S]*?)(?=\n###|$)/i)?.[1] || '';
-          document.getElementById('page-title').innerText = headline.trim();
-          document.getElementById('page-subtitle').innerText = subheadline.trim();
-          return;
-        }
+            // 1. Hero Data
+            if (titleL === 'hero') {
+                const headline = s.body.match(/### Headline\n(.*)/)?.[1] || '';
+                const subheadline = s.body.match(/### Subheadline\n([\s\S]*)/)?.[1] || '';
+                document.getElementById('page-title').textContent = headline;
+                document.getElementById('page-subtitle').textContent = subheadline;
+                return;
+            }
 
-        // Handle Footer/Contact
-        if (titleNorm === 'contact') {
-          const links = s.body.split('|').map(l => {
-            const span = document.createElement('span');
-            span.textContent = l.trim();
-            return span;
-          });
-          links.forEach(l => document.getElementById('footer-links').appendChild(l));
-          return;
-        }
+            // 2. Footer Links
+            if (titleL === 'contact') {
+                const links = s.body.split('|').map(l => l.trim());
+                const footer = document.getElementById('footer-links');
+                links.forEach(link => {
+                    const span = document.createElement('span');
+                    span.className = 'flex items-center gap-2';
+                    span.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> ${link}`;
+                    footer.appendChild(span);
+                });
+                return;
+            }
 
-        // Create Section Card
-        const card = document.createElement('section');
-        card.className = 'section-card rounded-2xl p-8 border transition-all';
-        
-        const isEco = titleNorm.includes('economics');
-        card.className += isEco 
-          ? ' bg-slate-900 border-slate-900 text-white shadow-xl' 
-          : ' bg-white border-slate-100 text-slate-900 shadow-sm';
-
-        const h2 = document.createElement('h2');
-        h2.className = 'text-xl font-bold tracking-tight mb-4';
-        h2.textContent = s.title;
-        card.appendChild(h2);
-
-        const content = document.createElement('div');
-        content.className = 'space-y-4 leading-relaxed opacity-90';
-
-        // Split body by subheadings or paragraphs
-        const parts = s.body.split(/### /).filter(Boolean);
-        parts.forEach(p => {
-          const pLines = p.split('\n').filter(Boolean);
-          if (pLines.length > 1 || p.includes('\n')) {
-            const subTitle = pLines[0].trim();
-            const subBody = pLines.slice(1).join(' ');
+            // 3. Section Cards
+            const card = document.createElement('section');
+            card.className = 'ui-card p-8 flex flex-col section-block';
             
-            const div = document.createElement('div');
-            div.innerHTML = `<h3 class="font-bold text-sm uppercase tracking-wider mb-1 ${isEco ? 'text-slate-400' : 'text-slate-500'}">${subTitle}</h3><p>${subBody}</p>`;
-            content.appendChild(div);
-          } else {
-            const para = document.createElement('p');
-            para.textContent = p.trim();
-            content.appendChild(para);
-          }
-        });
+            // Специальный стиль для Economics
+            if (titleL.includes('economics')) {
+                card.className = 'ui-card p-8 lg:col-span-2 bg-brand-black border-brand-black text-white section-block';
+                card.innerHTML = `<h2 class="text-white text-2xl font-bold mb-6">${s.title}</h2>`;
+            } else if (titleL === 'the problem') {
+                card.className += ' lg:col-span-1 border-l-4 border-l-brand-orange';
+                card.innerHTML = `<h2 class="text-brand-black text-2xl font-bold mb-6">${s.title}</h2>`;
+            } else {
+                card.innerHTML = `<h2 class="text-brand-black text-2xl font-bold mb-6">${s.title}</h2>`;
+            }
 
-        card.appendChild(content);
-        container.appendChild(card);
-      });
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'text-body space-y-4';
+
+            if (s.body.includes('###')) {
+                const subs = s.body.split(/### /).filter(Boolean);
+                subs.forEach(sub => {
+                    const lines = sub.split('\n').filter(Boolean);
+                    const subTitle = lines[0].trim();
+                    const subBody = lines.slice(1).join(' ');
+                    
+                    const item = document.createElement('div');
+                    item.className = 'group';
+                    item.innerHTML = `
+                        <h3 class="text-sm font-bold uppercase tracking-wider mb-1 ${titleL.includes('economics') ? 'text-brand-orange' : 'text-brand-black'}">${subTitle}</h3>
+                        <p class="${titleL.includes('economics') ? 'text-brand-muted' : 'text-brand-gray'} text-sm leading-relaxed">${subBody}</p>
+                    `;
+                    contentDiv.appendChild(item);
+                });
+            } else {
+                contentDiv.innerHTML = `<p class="text-sm leading-relaxed ${titleL.includes('economics') ? 'text-brand-muted' : 'text-brand-gray'}">${s.body.replace(/\n/g, '<br>')}</p>`;
+            }
+
+            card.appendChild(contentDiv);
+            container.appendChild(card);
+        });
     </script>
-  </body>
+</body>
 </html>
