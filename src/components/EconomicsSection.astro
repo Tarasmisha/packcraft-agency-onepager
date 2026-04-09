@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  intro: string;
+  baseline: string[];
+  withPack: string[];
+  scenario: string[];
+  support: string;
+}
+const { title, intro, baseline, withPack, scenario, support } = Astro.props;
+---
+<section class="rounded-2xl bg-white p-8">
+  <h2 class="text-2xl font-semibold text-neutral-950">{title}</h2>
+  <p class="mt-3 text-neutral-700">{intro}</p>
+  <div class="mt-5 grid gap-4 lg:grid-cols-2">
+    <div class="rounded-xl bg-neutral-50 p-4">
+      {baseline.map((line) => <p class="text-sm text-neutral-700">{line}</p>)}
+    </div>
+    <div class="rounded-xl bg-orange-50 p-4">
+      {withPack.map((line, i) => <p class={i === withPack.length - 1 ? 'text-sm font-semibold text-neutral-900' : 'text-sm text-neutral-700'}>{line}</p>)}
+    </div>
+  </div>
+  <div class="mt-4 rounded-xl bg-orange-50/60 p-4">
+    {scenario.map((line, i) => <p class={i === 0 ? 'text-sm font-semibold text-neutral-900' : 'text-sm text-neutral-700'}>{line}</p>)}
+  </div>
+  <p class="mt-4 text-neutral-900">{support}</p>
+</section>

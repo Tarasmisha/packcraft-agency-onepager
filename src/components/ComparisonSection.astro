@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  lead: string[];
+  leftTitle: string;
+  leftBullets: string[];
+  rightTitle: string;
+  rightBullets: string[];
+}
+const { title, lead, leftTitle, leftBullets, rightTitle, rightBullets } = Astro.props;
+---
+<section class="rounded-2xl bg-white p-8">
+  <h2 class="text-2xl font-semibold text-neutral-950">{title}</h2>
+  {lead.map((line) => <p class="mt-2 text-neutral-700">{line}</p>)}
+  <div class="mt-6 grid gap-4 md:grid-cols-2">
+    <article class="rounded-xl bg-neutral-50 p-5">
+      <h3 class="text-lg font-semibold text-neutral-900">{leftTitle}</h3>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-700">
+        {leftBullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </article>
+    <article class="rounded-xl bg-orange-50 p-5">
+      <h3 class="text-lg font-semibold text-neutral-900">{rightTitle}</h3>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-700">
+        {rightBullets.map((b) => <li>{b}</li>)}
+      </ul>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+---
+interface Props { lines: string[] }
+const { lines } = Astro.props;
+---
+<section class="rounded-2xl bg-white p-8">
+  {lines.map((line) => <p class="text-neutral-700">{line}</p>)}
+</section>
