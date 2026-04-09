@@ -1,9 +1,0 @@
----
-interface Props { items: string[] }
-const { items } = Astro.props;
----
-<section class="rounded-2xl bg-white p-8">
-  <ul class="space-y-2 text-neutral-700">
-    {items.map((item) => <li>{item}</li>)}
-  </ul>
-</section>
