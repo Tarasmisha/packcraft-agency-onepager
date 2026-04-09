@@ -25,10 +25,10 @@
             body { @apply bg-[#F1F1F1] font-inter text-brand-black antialiased; }
             h1 { @apply font-jakarta text-[48px] font-extrabold leading-[1.05] tracking-[-0.04em] text-brand-black; }
             h2 { @apply font-jakarta text-[28px] font-bold tracking-tight text-brand-black; }
-            h3 { @apply font-jakarta text-[16px] font-bold text-brand-black uppercase tracking-widest; }
+            h3 { @apply font-jakarta text-[15px] font-bold text-brand-black uppercase tracking-widest; }
             p { @apply text-[15px] leading-[1.6] text-brand-gray; }
         }
-        .digital-a4 { width: 210mm; background: white; margin: 40px auto; padding: 15mm; }
+        .digital-a4 { width: 210mm; min-height: 297mm; background: white; margin: 40px auto; padding: 20mm; }
         .bento-card { @apply bg-white border border-brand-border rounded-[24px] p-8 shadow-sm flex flex-col justify-between h-full; }
         
         @media print {
@@ -42,7 +42,7 @@
 
     <div class="digital-a4 shadow-2xl">
         
-        <header class="flex justify-between items-end pb-10 border-b border-brand-border mb-10">
+        <header class="flex justify-between items-end pb-10 border-b border-brand-border mb-12">
             <div class="space-y-1">
                 <div class="flex items-center gap-1">
                     <span class="font-jakarta font-black text-3xl tracking-tighter text-brand-black">Pack</span>
@@ -56,22 +56,23 @@
             </div>
         </header>
 
-        <section class="grid grid-cols-12 gap-6 mb-12">
-            <div class="col-span-8 space-y-6">
+        <section class="grid grid-cols-12 gap-8 mb-12">
+            <div class="col-span-8 space-y-8">
                 <h1>Turn content retainers into 60–73% gross margin.</h1>
                 <p class="text-xl font-medium text-brand-black leading-snug">
-                    PackCraft is a white-label production system for agencies. Your team puts in one topic and gets a ready production pack: copy, brief, script, and checklist.
+                    PackCraft is a white-label production system for agencies. Your team puts in one topic and gets a ready production pack: copy, designer brief, video script, and execution checklist.
                 </p>
-                <p>Instead of rebuilding delivery around people who leave, burn out, or need retraining, your team works from a repeatable system built for agency execution.</p>
+                <div class="space-y-4">
+                    <p>Instead of rebuilding delivery around people who leave, burn out, or need retraining, your team works from a repeatable system built for agency execution.</p>
+                    <p class="text-sm italic border-l-2 border-brand-orange pl-4">Your client keeps paying your agency for content. Your production cost changes. Pricing remains yours entirely.</p>
+                </div>
             </div>
             <div class="col-span-4 h-full">
-                <div class="bento-card bg-brand-black border-none text-white">
-                    <div class="icon-box bg-brand-orange/20 h-10 w-10 rounded-lg flex items-center justify-center mb-4">
-                        <i data-lucide="trending-up" class="text-brand-orange w-6 h-6"></i>
-                    </div>
-                    <div>
+                <div class="bento-card bg-brand-black border-none text-white justify-between">
+                    <i data-lucide="trending-up" class="text-brand-orange w-10 h-10"></i>
+                    <div class="space-y-2">
                         <p class="text-5xl font-black tracking-tighter text-brand-orange">73%</p>
-                        <p class="text-[10px] uppercase font-bold opacity-50 tracking-widest mt-1">Target Gross Margin</p>
+                        <p class="text-[10px] uppercase font-bold opacity-50 tracking-widest">Target Gross Margin</p>
                     </div>
                 </div>
             </div>
@@ -82,7 +83,7 @@
                 <div class="bento-card bg-orange-50/40 border-brand-orange/10">
                     <div>
                         <h2 class="mb-6">Margin Math Economics</h2>
-                        <div class="grid grid-cols-2 gap-8 mb-6">
+                        <div class="grid grid-cols-2 gap-8 mb-8">
                             <div class="space-y-1">
                                 <p class="text-[10px] font-bold text-brand-gray uppercase tracking-widest">Typical Model</p>
                                 <p class="text-xl font-bold text-brand-black">$1,500 – $2,000</p>
@@ -96,8 +97,7 @@
                         </div>
                     </div>
                     <div class="pt-6 border-t border-brand-orange/10 flex justify-between items-center">
-                        <p class="text-sm font-bold text-brand-black m-0">5 Clients → $8,500 Monthly Margin</p>
-                        <span class="text-[9px] uppercase font-bold text-brand-gray tracking-tighter">Scalable Model</span>
+                        <p class="text-sm font-bold text-brand-black m-0 leading-tight">Scenario: 5 Clients → $8,500 Monthly Gross Margin</p>
                     </div>
                 </div>
             </div>
@@ -106,30 +106,34 @@
                     <div>
                         <h3 class="text-brand-orange text-[10px] mb-4 tracking-widest">The Problem</h3>
                         <p class="font-bold text-brand-black text-sm mb-4">Margins are too thin. Production depends on unstable freelancers or coordination hell.</p>
-                        <p class="text-[13px] leading-relaxed mb-0">Agencies want AI efficiency without losing client trust or weakening control. The relationship remains yours.</p>
+                        <p class="text-[13px] leading-relaxed mb-0">Agencies want AI efficiency without losing client trust or weakening quality control. The relationship remains yours.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <section class="mb-12">
-            <h2 class="mb-8 border-b border-brand-border pb-4 uppercase text-[10px] tracking-[0.3em] text-brand-gray">The Production Pack Deliverables</h2>
-            <div class="grid grid-cols-4 gap-6">
+            <h2 class="mb-8 border-b border-brand-border pb-4 uppercase text-[10px] tracking-[0.3em] text-brand-gray font-black">Not generic AI output. A pack your team can use.</h2>
+            <div class="grid grid-cols-2 gap-x-12 gap-y-8">
                 <div class="space-y-2">
-                    <h3 class="text-brand-orange text-[10px]">Platform Copy</h3>
-                    <p class="text-[11px] font-semibold text-brand-black leading-tight">Captions, hooks, hashtags for IG, TikTok, LinkedIn.</p>
+                    <h3 class="text-brand-orange text-[11px]">Platform Copy</h3>
+                    <p class="text-[13px] font-semibold text-brand-black mb-1">Captions, hooks, and hashtags adapted for IG, TikTok, and LinkedIn.</p>
+                    <p class="text-[11px] leading-relaxed">Includes specific engagement hooks (e.g., “Niacinamide: Everyone says ‘you need it.’ No one says how much.”) and platform posting logic.</p>
                 </div>
-                <div class="space-y-2 border-l border-brand-border pl-6">
-                    <h3 class="text-brand-orange text-[10px]">Visual Brief</h3>
-                    <p class="text-[11px] font-semibold text-brand-black leading-tight">Slide direction, hex codes, and icon specs for designers.</p>
+                <div class="space-y-2 border-l border-brand-border pl-8">
+                    <h3 class="text-brand-orange text-[11px]">Visual Brief</h3>
+                    <p class="text-[13px] font-semibold text-brand-black mb-1">Slide-by-slide direction for the designer.</p>
+                    <p class="text-[11px] leading-relaxed">Includes layout direction, hex codes, font specs, and specific line-art icon placement directions for each slide.</p>
                 </div>
-                <div class="space-y-2 border-l border-brand-border pl-6">
-                    <h3 class="text-brand-orange text-[10px]">Video Script</h3>
-                    <p class="text-[11px] font-semibold text-brand-black leading-tight">Scene structure, timing, voiceover, and shot flow (Face & B-roll).</p>
+                <div class="space-y-2">
+                    <h3 class="text-brand-orange text-[11px]">Video Script</h3>
+                    <p class="text-[13px] font-semibold text-brand-black mb-1">Scene structure with timing, voiceover, and shot flow.</p>
+                    <p class="text-[11px] leading-relaxed">Includes face-to-camera and faceless/B-roll variants with on-screen text specs for Reels, TikTok, and Shorts.</p>
                 </div>
-                <div class="space-y-2 border-l border-brand-border pl-6">
-                    <h3 class="text-brand-orange text-[10px]">QA Checklist</h3>
-                    <p class="text-[11px] font-semibold text-brand-black leading-tight">Role-specific QA gates to validate quality before publishing.</p>
+                <div class="space-y-2 border-l border-brand-border pl-8">
+                    <h3 class="text-brand-orange text-[11px]">Execution Checklist</h3>
+                    <p class="text-[13px] font-semibold text-brand-black mb-1">Role-specific QA gates for quality control.</p>
+                    <p class="text-[11px] leading-relaxed">Handoff points and technical safe zones to validate content quality before publishing on target platforms.</p>
                 </div>
             </div>
         </section>
@@ -138,25 +142,25 @@
             <div class="col-span-8">
                 <div class="bento-card">
                     <h2 class="mb-8">Production in Action</h2>
-                    <div class="grid grid-cols-2 gap-x-12 gap-y-6">
-                        <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-x-12 gap-y-8">
+                        <div class="space-y-6">
                             <div class="flex gap-4 items-start">
-                                <span class="font-bold text-brand-orange uppercase text-[9px] mt-1">SMM</span>
-                                <p class="text-[13px] m-0">Takes platform-ready captions and hashtags immediately.</p>
+                                <span class="font-black text-brand-orange uppercase text-[10px] mt-1 shrink-0">SMM</span>
+                                <p class="text-[13px] m-0">Grabs platform-ready captions, hashtags, and posting logic immediately.</p>
                             </div>
                             <div class="flex gap-4 items-start">
-                                <span class="font-bold text-brand-orange uppercase text-[9px] mt-1">Design</span>
-                                <p class="text-[13px] m-0">Follows slide spec with zero Slack back-and-forth.</p>
+                                <span class="font-black text-brand-orange uppercase text-[10px] mt-1 shrink-0">Design</span>
+                                <p class="text-[13px] m-0">Follows slide specs with zero Slack back-and-forth. No "what did you mean here?".</p>
                             </div>
                         </div>
-                        <div class="space-y-4">
+                        <div class="space-y-6">
                             <div class="flex gap-4 items-start">
-                                <span class="font-bold text-brand-orange uppercase text-[9px] mt-1">Video</span>
-                                <p class="text-[13px] m-0">Shoots exactly what is timed and narrated in the script.</p>
+                                <span class="font-black text-brand-orange uppercase text-[10px] mt-1 shrink-0">Video</span>
+                                <p class="text-[13px] m-0">Opens the script and shoots exactly what is timed and narrated in the brief.</p>
                             </div>
                             <div class="flex gap-4 items-start">
-                                <span class="font-bold text-brand-orange uppercase text-[9px] mt-1">Manager</span>
-                                <p class="text-[13px] m-0">Validates handoffs and QA gates against the checklist.</p>
+                                <span class="font-black text-brand-orange uppercase text-[10px] mt-1 shrink-0">Manager</span>
+                                <p class="text-[13px] m-0">Validates sequence, handoff points, and review flow against the pre-set checklist.</p>
                             </div>
                         </div>
                     </div>
@@ -165,15 +169,15 @@
             <div class="col-span-4">
                 <div class="bento-card bg-brand-light">
                     <div>
-                        <h3 class="text-[10px] mb-4 tracking-widest text-brand-gray">Comparison</h3>
-                        <div class="space-y-4">
-                            <div class="pb-3 border-b border-brand-border">
-                                <p class="text-[9px] font-bold text-brand-gray uppercase mb-1">Prompts</p>
-                                <p class="text-[11px] italic mb-0">Produce text, not a system. Still blank-page prompting.</p>
+                        <h3 class="text-[10px] mb-6 tracking-widest text-brand-gray font-black">Architecture vs Prompts</h3>
+                        <div class="space-y-6">
+                            <div class="pb-4 border-b border-brand-border">
+                                <p class="text-[10px] font-bold text-brand-gray uppercase mb-2">Prompts (Claude/GPT)</p>
+                                <p class="text-[11px] italic mb-0">Requires manual architectural re-work. Brand-blind priming and generic text blocks. Solo-tool behavior.</p>
                             </div>
                             <div>
-                                <p class="text-[9px] font-bold text-brand-orange uppercase mb-1">PackCraft</p>
-                                <p class="text-[11px] font-bold text-brand-black leading-tight mb-0">Brand memory. Role-based output. Visual architecture included.</p>
+                                <p class="text-[10px] font-bold text-brand-orange uppercase mb-2">PackCraft System</p>
+                                <p class="text-[11px] font-bold text-brand-black leading-tight mb-0">Brand memory. Role-based output. Visual/Video architecture included. White-label infrastructure.</p>
                             </div>
                         </div>
                     </div>
@@ -181,24 +185,42 @@
             </div>
         </div>
 
-        <footer class="grid grid-cols-12 gap-6 pt-10 border-t border-brand-border items-center">
-            <div class="col-span-5 flex items-center gap-6">
-                <div class="h-14 w-14 bg-brand-black rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-xl shrink-0">TK</div>
-                <div class="space-y-1">
-                    <h3 class="text-sm normal-case mb-0 tracking-tight">Taras Kopytko</h3>
-                    <p class="text-[10px] leading-tight m-0 uppercase font-bold text-brand-gray tracking-tighter">UDMA Founder | 25y Operator</p>
+        <footer class="grid grid-cols-12 gap-8 pt-12 border-t border-brand-border items-start">
+            <div class="col-span-5 space-y-6">
+                <div class="flex items-center gap-6">
+                    <div class="h-16 w-16 bg-brand-black rounded-3xl flex items-center justify-center text-white font-black text-2xl shadow-xl shrink-0">TK</div>
+                    <div class="space-y-1">
+                        <h3 class="text-sm normal-case mb-0 tracking-tight font-bold">Taras Kopytko</h3>
+                        <p class="text-[10px] leading-tight m-0 uppercase font-bold text-brand-gray tracking-tighter">UDMA Founder | 25y Marketing Operator</p>
+                    </div>
                 </div>
+                <p class="text-[13px] italic leading-relaxed text-brand-black font-medium">
+                    "Built from real production pain inside agency delivery, not AI hype. PackCraft solves production drag for operators who care about the bottom line."
+                </p>
             </div>
             <div class="col-span-7">
-                <div class="bento-card bg-brand-orange text-white border-none shadow-xl shadow-brand-orange/20 !flex-row items-center gap-8">
-                    <div class="space-y-2">
-                        <h2 class="text-white text-2xl mb-0 italic tracking-tighter">Free Pilot Sequence.</h2>
-                        <p class="text-white/80 text-[10px] leading-snug m-0">Pick one client. 3-5 real packs. Evaluate output. Setup for 2+ clients: $1,500.</p>
+                <div class="bento-card bg-brand-orange text-white border-none shadow-xl shadow-brand-orange/20 !flex-col justify-between">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="space-y-2">
+                            <h2 class="text-white text-3xl font-black mb-0 italic tracking-tighter">Free Pilot Sequence.</h2>
+                            <p class="text-white/80 text-[12px] leading-snug m-0">Pick one client. We build 3-5 real packs. Evaluate output. Zero risk next step.</p>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-2xl text-center min-w-[120px]">
+                            <p class="text-4xl font-black text-white">$800</p>
+                            <p class="text-[9px] font-bold uppercase opacity-60 m-0">/client/mo</p>
+                        </div>
                     </div>
-                    <div class="bg-white/10 p-4 rounded-2xl text-center min-w-[120px]">
-                        <p class="text-3xl font-black text-white">$800</p>
-                        <p class="text-[9px] font-bold uppercase opacity-60 m-0">/client/mo</p>
+                    <div class="pt-6 border-t border-white/20 grid grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <p class="text-[9px] font-bold uppercase opacity-60">Setup (2-3 Clients)</p>
+                            <p class="text-sm font-bold">$1,500/client</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-[9px] font-bold uppercase opacity-60">Setup (4+ Clients)</p>
+                            <p class="text-sm font-bold">$1,200/client</p>
+                        </div>
                     </div>
+                    <button class="w-full bg-white text-brand-orange py-4 rounded-xl font-bold uppercase text-xs tracking-widest mt-6">Start Free Pilot Now</button>
                 </div>
             </div>
         </footer>
