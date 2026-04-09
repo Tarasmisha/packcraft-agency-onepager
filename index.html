@@ -3,38 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PackCraft for Agencies — One-Pager</title>
+    <title>PackCraft for Agencies</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @page { size: A4 portrait; margin: 15mm; }
       @media print {
-        body { background: white; font-size: 10pt; }
+        body { background: white !important; font-size: 10pt; }
         .no-print { display: none; }
-        .section-card { break-inside: avoid; border: 1px solid #e2e8f0; margin-bottom: 1rem; box-shadow: none !important; }
-        .mx-auto { max-width: 100% !important; }
+        .section-card { break-inside: avoid; border: 1px solid #e2e8f0 !important; margin-bottom: 1rem; box-shadow: none !important; }
+        .mx-auto { max-width: 100% !important; padding: 0 !important; }
       }
-      .section-card { transition: transform 0.2s ease; }
+      .section-card { page-break-inside: avoid; }
     </style>
   </head>
   <body class="bg-slate-50 text-slate-900 font-sans antialiased">
-    <main class="mx-auto max-w-5xl px-6 py-12 lg:px-8">
-      <header class="mb-10 border-b border-slate-200 pb-10">
+    <main class="mx-auto max-w-4xl px-6 py-12">
+      <header class="mb-12 border-b border-slate-200 pb-10">
         <div class="flex justify-between items-start">
-          <div>
-            <h1 id="page-title" class="text-5xl font-extrabold tracking-tight text-slate-950 leading-tight"></h1>
-            <p id="page-subtitle" class="mt-6 max-w-3xl text-xl leading-relaxed text-slate-600"></p>
+          <div class="space-y-4">
+            <h1 id="page-title" class="text-4xl font-black tracking-tight text-slate-950 sm:text-5xl leading-tight"></h1>
+            <p id="page-subtitle" class="max-w-2xl text-xl leading-relaxed text-slate-600"></p>
           </div>
-          <div class="text-right hidden sm:block">
-            <span class="rounded-full bg-slate-950 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white">Agency Edition</span>
+          <div class="hidden sm:block">
+            <span class="rounded-full bg-slate-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">Agency Edition</span>
           </div>
         </div>
       </header>
 
       <div id="content-grid" class="space-y-6"></div>
 
-      <footer class="mt-16 border-t border-slate-200 pt-10 text-center">
-        <p class="text-sm font-medium text-slate-500 uppercase tracking-widest">PackCraft Operations System</p>
-        <div id="footer-links" class="mt-4 flex justify-center gap-6 text-slate-400 text-sm"></div>
+      <footer class="mt-20 border-t border-slate-200 pt-8 text-center no-print">
+        <div id="footer-links" class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-slate-500"></div>
       </footer>
     </main>
 
@@ -49,8 +48,7 @@
       const raw = payload.markdown;
 
       const parseSections = (text) => {
-        const sections = text.split(/## /).filter(Boolean);
-        return sections.map(s => {
+        return text.split(/## /).filter(Boolean).map(s => {
           const lines = s.split('\n').filter(Boolean);
           const title = lines[0].trim();
           const body = lines.slice(1).join('\n').trim();
@@ -62,41 +60,63 @@
       const container = document.getElementById('content-grid');
 
       sections.forEach(s => {
-        if (s.title.toLowerCase() === 'hero') {
-          const headline = s.body.match(/### Headline\n(.*)/)?.[1] || '';
-          const subheadline = s.body.match(/### Subheadline\n([\s\S]*)/)?.[1] || '';
-          document.getElementById('page-title').textContent = headline;
-          document.getElementById('page-subtitle').textContent = subheadline;
+        const titleNorm = s.title.toLowerCase();
+
+        // Handle Hero
+        if (titleNorm === 'hero') {
+          const headline = s.body.match(/### Headline\s*\n([\s\S]*?)(?=\n###|$)/i)?.[1] || '';
+          const subheadline = s.body.match(/### Subheadline\s*\n([\s\S]*?)(?=\n###|$)/i)?.[1] || '';
+          document.getElementById('page-title').innerText = headline.trim();
+          document.getElementById('page-subtitle').innerText = subheadline.trim();
           return;
         }
 
-        if (s.title.toLowerCase() === 'contact') {
-          document.getElementById('footer-links').textContent = s.body;
+        // Handle Footer/Contact
+        if (titleNorm === 'contact') {
+          const links = s.body.split('|').map(l => {
+            const span = document.createElement('span');
+            span.textContent = l.trim();
+            return span;
+          });
+          links.forEach(l => document.getElementById('footer-links').appendChild(l));
           return;
         }
 
+        // Create Section Card
         const card = document.createElement('section');
-        card.className = 'section-card rounded-2xl bg-white p-8 shadow-sm border border-slate-100';
+        card.className = 'section-card rounded-2xl p-8 border transition-all';
         
-        if (s.title.toLowerCase().includes('economics')) {
-          card.classList.add('bg-slate-950', 'text-white');
-          card.classList.remove('bg-white', 'text-slate-900');
-        }
+        const isEco = titleNorm.includes('economics');
+        card.className += isEco 
+          ? ' bg-slate-900 border-slate-900 text-white shadow-xl' 
+          : ' bg-white border-slate-100 text-slate-900 shadow-sm';
 
         const h2 = document.createElement('h2');
-        h2.className = `text-2xl font-bold tracking-tight ${s.title.toLowerCase().includes('economics') ? 'text-white' : 'text-slate-950'}`;
+        h2.className = 'text-xl font-bold tracking-tight mb-4';
         h2.textContent = s.title;
+        card.appendChild(h2);
 
         const content = document.createElement('div');
-        content.className = 'mt-4 prose prose-slate max-w-none';
-        
-        const formattedBody = s.body
-          .replace(/### (.*)/g, '<h3 class="font-bold text-lg mt-4 mb-1">$1</h3>')
-          .split('\n').map(line => line.trim() ? `<p class="mb-2 opacity-90">${line}</p>` : '').join('');
+        content.className = 'space-y-4 leading-relaxed opacity-90';
 
-        content.innerHTML = formattedBody;
-        
-        card.appendChild(h2);
+        // Split body by subheadings or paragraphs
+        const parts = s.body.split(/### /).filter(Boolean);
+        parts.forEach(p => {
+          const pLines = p.split('\n').filter(Boolean);
+          if (pLines.length > 1 || p.includes('\n')) {
+            const subTitle = pLines[0].trim();
+            const subBody = pLines.slice(1).join(' ');
+            
+            const div = document.createElement('div');
+            div.innerHTML = `<h3 class="font-bold text-sm uppercase tracking-wider mb-1 ${isEco ? 'text-slate-400' : 'text-slate-500'}">${subTitle}</h3><p>${subBody}</p>`;
+            content.appendChild(div);
+          } else {
+            const para = document.createElement('p');
+            para.textContent = p.trim();
+            content.appendChild(para);
+          }
+        });
+
         card.appendChild(content);
         container.appendChild(card);
       });
