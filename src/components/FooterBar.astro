@@ -1,0 +1,7 @@
+---
+interface Props { lines: string[] }
+const { lines } = Astro.props;
+---
+<footer class="rounded-2xl bg-white p-8">
+  {lines.map((line, idx) => <p class={idx === 0 ? 'text-base font-semibold text-neutral-950' : 'mt-1 text-sm text-neutral-700'}>{line}</p>)}
+</footer>

@@ -1,0 +1,17 @@
+---
+interface Role { title: string; body: string }
+interface Props { roles: Role[]; support: string; closing: string }
+const { roles, support, closing } = Astro.props;
+---
+<section class="rounded-2xl bg-white p-8">
+  <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+    {roles.map((role) => (
+      <article class="rounded-xl bg-neutral-50 p-4">
+        <h3 class="text-base font-semibold text-neutral-900">{role.title}</h3>
+        <p class="mt-2 text-sm text-neutral-700">{role.body}</p>
+      </article>
+    ))}
+  </div>
+  <p class="mt-4 text-sm text-neutral-700">{support}</p>
+  <p class="mt-2 text-neutral-900">{closing}</p>
+</section>
