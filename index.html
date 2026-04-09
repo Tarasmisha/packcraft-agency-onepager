@@ -10,7 +10,7 @@
       @media print {
         body { background: white; font-size: 10pt; }
         .no-print { display: none; }
-        .section-card { break-inside: avoid; border: 1px solid #e2e8f0; margin-bottom: 1rem; shadow: none; }
+        .section-card { break-inside: avoid; border: 1px solid #e2e8f0; margin-bottom: 1rem; box-shadow: none !important; }
         .mx-auto { max-width: 100% !important; }
       }
       .section-card { transition: transform 0.2s ease; }
@@ -40,39 +40,7 @@
 
     <script type="application/json" id="marketing-content">
       {
-        "markdown": "## hero
-### Headline
-Turn content retainers into 60–73% gross margin.
-### Subheadline
-PackCraft is a white-label production system for agencies. One topic in. A production pack out for your SMM, designer, videographer, and manager.
-
-## The Problem
-Margins are too thin. Production depends on unstable freelancers. Teams need constant coordination. Agencies want AI efficiency without losing client trust.
-
-## Why PackCraft?
-### Not just prompts
-A project with prompts produces raw text. PackCraft provides a delivery system with role-based instructions, brand memory, and repeatable structure.
-
-## Deliverables
-### Platform Copy
-Captions, hooks, hashtags, and adaptation.
-### Visual Assets
-Slide-by-slide briefs for designers and scene-by-scene scripts for video.
-### Execution
-Checklists for managers and review gates for quality control.
-
-## The Economics
-### Typical Agency
-20–30% gross margin. High production costs ($1,500+ per client).
-### With PackCraft
-60–73% gross margin. Fixed production cost of $800/client/month.
-
-## Free Pilot
-### Pick one client
-We build 3–5 real packs for your team to review. No risk, no change to your current workflow until you see the results.
-
-## Contact
-Email: iamtaras@gmail.com | WhatsApp: +48 510 725 488"
+        "markdown": "## hero\n### Headline\nTurn content retainers into 60–73% gross margin.\n### Subheadline\nPackCraft is a white-label production system for agencies. One topic in. A production pack out for your SMM, designer, videographer, and manager.\n\n## The Problem\nMargins are too thin. Production depends on unstable freelancers. Teams need constant coordination. Agencies want AI efficiency without losing client trust.\n\n## Why PackCraft?\n### Not just prompts\nA project with prompts produces raw text. PackCraft provides a delivery system with role-based instructions, brand memory, and repeatable structure.\n\n## Deliverables\n### Platform Copy\nCaptions, hooks, hashtags, and adaptation.\n### Visual Assets\nSlide-by-slide briefs for designers and scene-by-scene scripts for video.\n### Execution\nChecklists for managers and review gates for quality control.\n\n## The Economics\n### Typical Agency\n20–30% gross margin. High production costs ($1,500+ per client).\n### With PackCraft\n60–73% gross margin. Fixed production cost of $800/client/month.\n\n## Free Pilot\n### Pick one client\nWe build 3–5 real packs for your team to review. No risk, no change to your current workflow until you see the results.\n\n## Contact\nEmail: iamtaras@gmail.com | WhatsApp: +48 510 725 488"
       }
     </script>
 
@@ -110,20 +78,18 @@ Email: iamtaras@gmail.com | WhatsApp: +48 510 725 488"
         const card = document.createElement('section');
         card.className = 'section-card rounded-2xl bg-white p-8 shadow-sm border border-slate-100';
         
-        // Highlight Economics
         if (s.title.toLowerCase().includes('economics')) {
           card.classList.add('bg-slate-950', 'text-white');
           card.classList.remove('bg-white', 'text-slate-900');
         }
 
         const h2 = document.createElement('h2');
-        h2.className = `text-2xl font-bold tracking-tight ${s.title.includes('Economics') ? 'text-white' : 'text-slate-950'}`;
+        h2.className = `text-2xl font-bold tracking-tight ${s.title.toLowerCase().includes('economics') ? 'text-white' : 'text-slate-950'}`;
         h2.textContent = s.title;
 
         const content = document.createElement('div');
         content.className = 'mt-4 prose prose-slate max-w-none';
         
-        // Simple Markdown subheadings to bold
         const formattedBody = s.body
           .replace(/### (.*)/g, '<h3 class="font-bold text-lg mt-4 mb-1">$1</h3>')
           .split('\n').map(line => line.trim() ? `<p class="mb-2 opacity-90">${line}</p>` : '').join('');
