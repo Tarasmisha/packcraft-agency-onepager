@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PackCraft — Commercial Offer</title>
+    <title>PackCraft for Agencies — One-Pager</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
@@ -25,174 +25,193 @@
     <style type="text/tailwindcss">
         @layer base {
             body { @apply bg-brand-bg font-inter text-brand-black antialiased; }
-            h1 { @apply font-jakarta text-[42px] lg:text-[52px] font-extrabold leading-[1.05] tracking-[-0.03em] mb-4 text-brand-black; }
-            h2 { @apply font-jakarta text-[24px] lg:text-[28px] font-bold leading-tight text-brand-black mb-3 border-l-4 border-brand-orange pl-4; }
-            h3 { @apply font-jakarta text-[18px] font-bold text-brand-black mb-1; }
-            p { @apply text-[14px] lg:text-[15px] leading-[1.5] text-brand-gray mb-3; }
+            h1 { @apply font-jakarta text-[48px] lg:text-[56px] font-extrabold leading-[1.05] tracking-[-0.03em] mb-8 text-brand-black; }
+            h2 { @apply font-jakarta text-[28px] lg:text-[32px] font-bold leading-tight text-brand-black mb-4; }
+            h3 { @apply font-jakarta text-[18px] lg:text-[20px] font-bold text-brand-black mb-2; }
+            p { @apply text-[15px] lg:text-[16px] leading-[1.6] text-brand-gray mb-4; }
         }
-        .content-card { @apply bg-white border border-brand-border rounded-xl p-6 shadow-sm; }
-        .icon-container { @apply text-brand-orange w-5 h-5 mb-2; }
+        .ui-card { @apply bg-white border border-brand-border rounded-2xl p-8 shadow-sm transition-all; }
+        .icon-orange { @apply text-brand-orange w-5 h-5; }
         
         @media print {
-            @page { size: A4; margin: 10mm; }
-            body { background: white !important; }
+            @page { size: A4 portrait; margin: 10mm; }
+            body { background: white !important; font-size: 11pt; }
             .no-print { display: none !important; }
-            .print-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 15px !important; }
+            .print-2-cols { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
             .full-row { grid-column: span 2 !important; }
-            .content-card { padding: 12px !important; border-radius: 8px !important; page-break-inside: avoid; }
-            h1 { font-size: 26pt !important; }
-            h2 { font-size: 16pt !important; }
+            .ui-card { padding: 1.25rem !important; border-radius: 12px !important; page-break-inside: avoid; margin-bottom: 0 !important; }
+            h1 { font-size: 32pt !important; margin-bottom: 1rem !important; }
+            h2 { font-size: 20pt !important; margin-bottom: 0.5rem !important; }
+            .section-gap { margin-top: 1.5rem !important; }
         }
     </style>
 </head>
 <body>
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-brand-border no-print">
-        <div class="mx-auto max-w-6xl px-6 h-12 flex items-center justify-between">
-            <div class="font-jakarta font-extrabold text-lg tracking-tighter">
+        <div class="mx-auto max-w-6xl px-8 h-14 flex items-center justify-between">
+            <div class="font-jakarta font-extrabold text-xl tracking-tighter">
                 Pack<span class="text-brand-orange">Craft</span>
             </div>
-            <span class="text-[9px] font-bold uppercase tracking-widest text-brand-gray px-2 py-0.5 bg-brand-bg rounded border border-brand-border">Agency Infrastructure 2025</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-gray px-3 py-1 bg-brand-bg rounded-full border border-brand-border">Agency Edition 2025</span>
         </div>
     </nav>
 
-    <main class="mx-auto max-w-6xl px-6 py-8 print-grid lg:grid lg:grid-cols-2 lg:gap-6 space-y-6 lg:space-y-0">
+    <main class="mx-auto max-w-6xl px-8 py-12 lg:py-16 space-y-12 print-2-cols lg:grid lg:grid-cols-2 lg:gap-12 lg:space-y-0">
         
-        <header class="full-row lg:col-span-2 space-y-4 pb-4 border-b border-brand-border">
-            <div class="inline-flex items-center gap-2 px-2 py-0.5 bg-orange-50 rounded border border-brand-orange/10">
-                <i data-lucide="zap" class="w-3 h-3 text-brand-orange fill-brand-orange"></i>
-                <span class="text-[10px] font-bold text-brand-orange uppercase">Commercial Proposal</span>
+        <header class="full-row lg:col-span-2 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-orange-50 rounded border border-brand-orange/10">
+                <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange"></i>
+                <span class="text-[10px] font-bold text-brand-orange uppercase tracking-wider">White-Label Production Infrastructure</span>
             </div>
             <h1>Turn content retainers into 60–73% gross margin.</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <p class="text-lg font-medium text-brand-black leading-tight mb-0">
-                    PackCraft is a white-label production system for agencies. One topic in. A production pack out: copy, briefs, scripts, and checklists. [cite: 41]
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <p class="text-lg lg:text-xl font-medium text-brand-black leading-snug mb-0">
+                    PackCraft is a white-label production system for agencies. Your team puts in one topic and gets a ready production pack: copy, designer brief, video script, and execution checklist. [cite: 41]
                 </p>
-                <p class="text-sm mb-0">
-                    Instead of rebuilding delivery around people who leave, your team works from a repeatable system built for agency execution. [cite: 41]
-                </p>
+                <div class="space-y-4">
+                    <p class="mb-0">Your client keeps paying your agency for content. Your production cost changes. Instead of rebuilding delivery around fragile teams, you work from a repeatable system. [cite: 41]</p>
+                    <button class="no-print bg-brand-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-orangeHover shadow-lg shadow-brand-orange/20 transition-all">Start a free pilot on one client</button>
+                </div>
             </div>
         </header>
 
-        <section class="full-row lg:col-span-2 content-card bg-brand-black text-white border-none shadow-xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="space-y-2">
-                    <h2 class="text-white border-brand-orange/50">Margin Math</h2>
-                    <p class="text-brand-muted text-xs">Typical Retainer: $2,500/mo [cite: 46]</p>
+        <section class="full-row lg:col-span-2 ui-card bg-brand-bg/50 border-brand-orange/10 section-gap">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-4">
+                    <h2>Margin Math Economics</h2>
+                    <p class="text-sm mb-0">The economics change before the team changes. Your client still pays for strategy; the difference is underneath. [cite: 44-45]</p>
                 </div>
-                <div class="flex flex-col justify-center border-l border-white/10 pl-8">
-                    <span class="text-[10px] font-bold uppercase text-brand-orange mb-1">Production Cost Drops</span>
-                    <p class="text-3xl font-black text-white">$800<span class="text-xs font-normal">/client</span></p>
-                </div>
-                <div class="flex flex-col justify-center border-l border-white/10 pl-8">
-                    <span class="text-[10px] font-bold uppercase text-green-400 mb-1">New Gross Margin</span>
-                    <p class="text-3xl font-black text-green-400">60–73%</p>
+                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-6 bg-white border border-brand-border rounded-xl space-y-4">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-gray">Typical Agency Model</span>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between border-b border-brand-border pb-2"><span>Typical Retainer</span><strong>$2,500/mo</strong></div>
+                            <div class="flex justify-between border-b border-brand-border pb-2"><span>Production Cost</span><strong>$1,500–$2,000</strong></div>
+                            <div class="flex justify-between"><span>Gross Margin</span><strong class="text-red-500">20–30%</strong></div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white border-2 border-brand-orange rounded-xl space-y-4">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-orange">With PackCraft Infrastructure</span>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between border-b border-brand-border pb-2"><span>Typical Retainer</span><strong>$2,500/mo</strong></div>
+                            <div class="flex justify-between border-b border-brand-border pb-2"><span>Production Cost</span><strong class="text-brand-orange">$800/client/mo</strong></div>
+                            <div class="flex justify-between"><span>New Gross Margin</span><strong class="text-brand-orange text-2xl font-black">60–73%</strong></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="mt-6 pt-6 border-t border-white/10 flex justify-between items-center text-[11px] font-bold uppercase tracking-widest text-brand-muted">
-                <span>Scenario: 5 Clients → $8,500 Monthly Gross Margin [cite: 47]</span>
-                <span class="text-brand-orange">Scalable Production Model</span>
+            <div class="mt-8 pt-8 border-t border-brand-border flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-brand-black font-bold mb-0">The 5-Client Scenario: <span class="text-brand-orange">$12,500 revenue</span> → $8,500 Monthly Gross Margin [cite: 47]</p>
+                <div class="text-[10px] bg-brand-black text-white px-4 py-1.5 rounded-full uppercase font-bold tracking-widest">Scalable Production Model</div>
             </div>
         </section>
 
-        <section class="content-card">
-            <div class="icon-container"><i data-lucide="alert-triangle"></i></div>
-            <h2>The Problem</h2>
-            <p>Margins are too thin. Production depends on unstable freelancers or coordination hell. Teams need repeated clarification. [cite: 46]</p>
-            <p>Agencies want AI efficiency without losing client trust. The relationship must stay yours. [cite: 44]</p>
+        <section class="ui-card section-gap">
+            <div class="flex items-center gap-3 mb-6">
+                <i data-lucide="alert-circle" class="icon-orange"></i>
+                <h3>The Problem</h3>
+            </div>
+            <p class="text-brand-black font-semibold">Margins are too thin. Production depends on unstable freelancers or coordination hell. Teams need repeated clarification. [cite: 46]</p>
+            <p class="mb-0 text-sm">Agencies want AI efficiency without losing client trust. The relationship must stay yours. [cite: 44]</p>
         </section>
 
-        <section class="content-card">
-            <div class="icon-container"><i data-lucide="package"></i></div>
-            <h2>The Production Pack</h2>
-            <div class="grid grid-cols-2 gap-4 text-[13px]">
+        <section class="ui-card section-gap">
+            <div class="flex items-center gap-3 mb-6">
+                <i data-lucide="package-plus" class="icon-orange"></i>
+                <h3>The Production Pack</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-6 text-[13px]">
                 <div class="space-y-1">
-                    <h3 class="text-xs">Platform Copy</h3>
+                    <p class="font-bold text-brand-black mb-0">Platform Copy</p>
                     <p class="text-[11px] mb-0">Captions, hooks, hashtags for IG, TikTok, LinkedIn. [cite: 52]</p>
                 </div>
                 <div class="space-y-1">
-                    <h3 class="text-xs">Visual Brief</h3>
-                    <p class="text-[11px] mb-0">Slide-by-slide direction, font specs, icon placement. [cite: 52]</p>
+                    <p class="font-bold text-brand-black mb-0">Visual Brief</p>
+                    <p class="text-[11px] mb-0">Slide-by-slide direction for the designer. Hex codes & fonts. [cite: 52]</p>
                 </div>
                 <div class="space-y-1">
-                    <h3 class="text-xs">Video Script</h3>
-                    <p class="text-[11px] mb-0">Scene structure, timing, voiceover, shot flow. [cite: 52]</p>
+                    <p class="font-bold text-brand-black mb-0">Video Script</p>
+                    <p class="text-[11px] mb-0">Scene-by-scene timing, voiceover, and shot flow. [cite: 52]</p>
                 </div>
                 <div class="space-y-1">
-                    <h3 class="text-xs">Checklist</h3>
-                    <p class="text-[11px] mb-0">Handoffs and QA gates before publishing. [cite: 52]</p>
+                    <p class="font-bold text-brand-black mb-0">Checklist</p>
+                    <p class="text-[11px] mb-0">Role-specific QA gates to validate quality before publishing. [cite: 52]</p>
                 </div>
             </div>
         </section>
 
-        <section class="content-card border-l-4 border-l-brand-orange">
-            <div class="icon-container"><i data-lucide="layers"></i></div>
-            <h2>Architecture vs. Prompts</h2>
-            <div class="space-y-4">
-                <div class="pb-3 border-b border-brand-border">
+        <section class="ui-card section-gap">
+            <div class="flex items-center gap-3 mb-6">
+                <i data-lucide="layers" class="icon-orange"></i>
+                <h3>Architecture vs. Prompts</h3>
+            </div>
+            <div class="space-y-6 text-[13px]">
+                <div class="pb-4 border-b border-brand-border">
                     <p class="text-[10px] font-bold uppercase text-brand-gray mb-1">Prompts (Claude/GPT)</p>
-                    <p class="text-xs italic mb-0">Brand-blind, generic text blocks. Requires manual architectural re-work. [cite: 64]</p>
+                    <p class="mb-0">Brand-blind priming, generic text blocks, and manual architectural re-work. [cite: 64]</p>
                 </div>
                 <div>
                     <p class="text-[10px] font-bold uppercase text-brand-orange mb-1">PackCraft System</p>
-                    <p class="text-xs font-semibold text-brand-black mb-0">Brand memory. Role-based output. Visual architecture included. [cite: 64]</p>
+                    <p class="mb-0 font-semibold text-brand-black">Brand memory. Role-based output (Designer/SMM/Video). Visual architecture included. [cite: 64]</p>
                 </div>
             </div>
         </section>
 
-        <section class="content-card">
-            <div class="icon-container"><i data-lucide="git-branch"></i></div>
-            <h2>Production in Action</h2>
-            <div class="space-y-3 text-[13px]">
-                <p class="mb-0"><strong>SMM:</strong> Grabs platform-ready captions immediately. [cite: 56]</p>
-                <p class="mb-0"><strong>Designer:</strong> Follows slide specs with zero Slack back-and-forth. [cite: 57]</p>
-                <p class="mb-0"><strong>Videographer:</strong> Shoots exactly what is timed and narrated. [cite: 58]</p>
-                <p class="mb-0"><strong>Manager:</strong> Validates handoffs against the checklist. [cite: 59]</p>
+        <section class="ui-card section-gap">
+            <div class="flex items-center gap-3 mb-6">
+                <i data-lucide="git-branch" class="icon-orange"></i>
+                <h3>Production in Action</h3>
+            </div>
+            <div class="space-y-4 text-[13px]">
+                <div class="flex gap-4"><strong>SMM:</strong> <p class="mb-0 text-sm">Grabs platform-ready captions immediately. [cite: 56]</p></div>
+                <div class="flex gap-4"><strong>Designer:</strong> <p class="mb-0 text-sm">Follows slide specs with zero Slack back-and-forth. [cite: 57]</p></div>
+                <div class="flex gap-4"><strong>Video:</strong> <p class="mb-0 text-sm">Shoots exactly what is timed and narrated. [cite: 58]</p></div>
+                <div class="flex gap-4"><strong>Manager:</strong> <p class="mb-0 text-sm">Validates handoffs against the checklist. [cite: 59]</p></div>
             </div>
         </section>
 
-        <section class="content-card bg-brand-orange/5 border-brand-orange/20">
-            <div class="icon-container"><i data-lucide="shield"></i></div>
-            <h2>White-Label Control</h2>
-            <div class="grid grid-cols-2 gap-4 text-[11px] font-medium text-brand-black">
-                <div class="flex items-start gap-2">
-                    <i data-lucide="check-circle" class="w-3 h-3 mt-0.5 text-brand-orange"></i>
-                    <span>Your Brand: Invisible to your client. [cite: 67]</span>
-                </div>
-                <div class="flex items-start gap-2">
-                    <i data-lucide="check-circle" class="w-3 h-3 mt-0.5 text-brand-orange"></i>
-                    <span>Your Review: Team keeps final approval. [cite: 67]</span>
-                </div>
-                <div class="flex items-start gap-2">
-                    <i data-lucide="check-circle" class="w-3 h-3 mt-0.5 text-brand-orange"></i>
-                    <span>Your Client: Relationship remains yours. [cite: 67]</span>
-                </div>
+        <section class="ui-card section-gap lg:col-span-1">
+            <div class="flex items-center gap-3 mb-6">
+                <i data-lucide="shield" class="icon-orange"></i>
+                <h3>White-Label Control</h3>
+            </div>
+            <div class="space-y-4 text-[13px]">
+                <p class="mb-0"><strong>Your Brand:</strong> PackCraft is invisible to your client. [cite: 67]</p>
+                <p class="mb-0"><strong>Your Review:</strong> Your team keeps final approval. Nothing goes live without your eyes on it. [cite: 67]</p>
+                <p class="mb-0"><strong>Your Client:</strong> Ownership of the relationship remains yours entirely. [cite: 67]</p>
             </div>
         </section>
 
-        <section class="content-card">
-            <div class="flex gap-4 items-center mb-4">
-                <div class="h-10 w-10 bg-brand-black rounded flex items-center justify-center text-white font-bold">TK</div>
-                <div class="space-y-0.5">
-                    <h3 class="text-sm">Taras Kopytko</h3>
-                    <p class="text-[10px] text-brand-gray mb-0 uppercase tracking-tighter">25y marketing operator | UDMA Founder [cite: 79-81]</p>
+        <section class="ui-card section-gap lg:col-span-1 bg-brand-black text-white border-none">
+            <div class="flex gap-4 items-center mb-6">
+                <div class="h-12 w-12 bg-brand-orange rounded-xl flex items-center justify-center text-white font-black text-2xl">TK</div>
+                <div>
+                    <h3 class="text-white mb-0 text-lg">Taras Kopytko</h3>
+                    <p class="text-[10px] uppercase font-bold text-brand-orange tracking-widest mb-0">Agency Operator Proof [cite: 79-81]</p>
                 </div>
             </div>
-            <p class="text-xs italic font-medium leading-relaxed">"Built from real production pain inside agency delivery, not AI hype." [cite: 78]</p>
+            <p class="text-brand-muted text-[13px] mb-4">25y in marketing. UDMA Founder. Built from real production pain inside agency delivery, not AI hype. [cite: 78, 80-83]</p>
+            <i data-lucide="quote" class="w-5 h-5 text-brand-orange opacity-20"></i>
         </section>
 
-        <footer class="full-row lg:col-span-2 pt-10 border-t border-brand-border flex flex-col md:flex-row gap-12 items-center">
-            <div class="md:w-1/2 space-y-4">
-                <h2>The Free Pilot</h2>
-                <p>Pick one client. We build 3–5 production packs. Evaluate with your team. Zero risk. [cite: 71-73]</p>
-            </div>
-            <div class="md:w-1/2 content-card border-2 border-brand-orange shadow-2xl space-y-4">
-                <div class="flex justify-between items-center">
-                    <span class="text-sm font-bold uppercase tracking-widest text-brand-gray">Monthly Subscription</span>
-                    <span class="text-2xl font-black text-brand-orange">$800<span class="text-xs font-normal">/client</span></span>
+        <footer class="full-row lg:col-span-2 section-gap py-12 border-t border-brand-border">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2>The Free Pilot</h2>
+                    <p class="text-lg">Pick one client. We build 3–5 production packs. Evaluate with your team. Zero risk next step. [cite: 70-73]</p>
                 </div>
-                <button class="no-print w-full bg-brand-orange text-white py-4 rounded-xl font-bold hover:bg-brand-orangeHover shadow-lg shadow-brand-orange/20">Start Free Pilot Now</button>
-                <p class="text-[10px] text-center mb-0">iamtaras@gmail.com | getpackcraft.com</p>
+                <div class="ui-card border-2 border-brand-orange shadow-2xl space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm font-bold uppercase tracking-widest text-brand-gray">Monthly Subscription</span>
+                        <p class="text-3xl font-black text-brand-orange mb-0">$800<span class="text-xs font-normal">/client</span></p>
+                    </div>
+                    <button class="no-print w-full bg-brand-orange text-white py-5 rounded-2xl font-bold text-xl hover:bg-brand-orangeHover shadow-2xl shadow-brand-orange/40 transition-all">Start Free Pilot Now</button>
+                    <div class="flex justify-center gap-6 text-[10px] font-bold text-brand-muted uppercase tracking-widest">
+                        <span>iamtaras@gmail.com</span>
+                        <span>getpackcraft.com</span>
+                    </div>
+                </div>
             </div>
         </footer>
 
